@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "ConditionsApp", "ConditionsApp\ConditionsApp.pyproj", "{4C9157A5-2FCF-40C8-A826-E59DAF9F258C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C9157A5-2FCF-40C8-A826-E59DAF9F258C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C9157A5-2FCF-40C8-A826-E59DAF9F258C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {896AE1C8-8C02-4A97-AAAF-89A7AEC304AF}
+	EndGlobalSection
+EndGlobal
