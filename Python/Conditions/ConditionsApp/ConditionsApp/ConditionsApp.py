@@ -86,10 +86,24 @@
 #word = input("Enter word: ")
 #count = int(input("Enter count for repeat: "))
 
-#if count > 10:
-#    print("Error")
-#if count <= 10:
-#    result = word * count
-#    print(result)
+#word * (count % 10)
 
 #print(not(10 > 5))
+
+#num = 10
+#num %= 3
+
+# + - / ...
+# == > <
+# or and not
+
+#num = float(input())
+#if num>10:
+#    print("Error")
+#if num<=10:
+#    print(num)
+
+#word = input("Input word: ")
+#repeatCount = int(input("Input number: "))
+
+
