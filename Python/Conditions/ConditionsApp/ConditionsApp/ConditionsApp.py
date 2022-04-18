@@ -1,3 +1,5 @@
+# print("Hello\n\n\nWorld")
+
 # print(3 * 2 + 3) 9
 # print(3 * (2 + 3) / 3)
 
@@ -106,4 +108,125 @@
 #word = input("Input word: ")
 #repeatCount = int(input("Input number: "))
 
+#checker = True
 
+#if checker == False:
+#    print("10 > 12")
+#else:
+#    print("else 1")
+#    print("else 2")
+#    if True:
+#        print("Inner")
+#        if False:
+#            print("abdjhsad")
+#        else:
+#            print("test")
+
+#age = int(input())
+
+#isAdult = age >= 18
+
+#print(f"User is adult: {isAdult}")
+
+
+# age = int(input())
+
+# ternarny operation
+
+#userType = 1 if age >= 18 else True
+
+#print(type(userType))
+
+#if age >= 18:
+#    message = "Adult"
+#else:
+#    message = "Teenager"
+
+#print(1 if int(input()) >= 18 else True)
+
+
+
+
+
+
+
+# speed >= 270 :    "S class"
+# else :            "Other"
+
+
+#speed = float(input("Input your car's speed: "))
+
+#carType = "S class" if speed >= 270 else print("Error")
+
+#print(type(carType))
+
+
+## if else
+#carType = "Unknown"
+
+#if speed >= 270:
+#    carType = "S class"
+#else:
+#    carType = "Other"
+
+#print(carType)
+
+
+
+# ru, en, az
+
+
+#if lang == "ru":
+#    print("привет!")
+#elif lang == "en":
+#    print("hello!")
+#elif lang == "az":
+#    print("salam!")
+#else:
+#    print(f"there is no language like '{lang}'")
+
+#lang = input()
+
+#if lang == "ru":
+#    print("привет!")
+#elif lang == "en":
+#    print("hello!")
+#elif lang == "az":
+#    print("salam!")
+#elif lang == "tr":
+#    print("Merhaba!")
+#elif lang == "fr":
+#    print("Bonjour!")
+#else:
+#    print(f"there is no language like '{lang}'")
+
+#if False:
+#    print("one")
+#elif False:
+#    print("two")
+#elif True:
+#    print("three")
+#elif False:
+#    print("four")
+#else:
+#    print("five")
+
+
+#if False:
+#    print("one")
+#elif False:
+#    print("two")
+#else:
+#    print("three")
+
+
+
+# HW
+# 10 questions (1.000 -> 100.000)
+
+# question?
+
+# A) Variant
+# B) Variant
+# C) Variant
+# D) Variant
