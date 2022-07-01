@@ -98,4 +98,57 @@ int main()
 
 	//char i = (true ? 'a' : 123);
 	//cout << i << endl;
+
+
+
+
+
+	//int age;
+
+    //cin >> age;
+
+    //bool isAdult = (age >= 18); // ? true : false;
+
+    //cout << isAdult << endl;
+
+
+
+
+    /*
+    for (int x = 0; x < 10; x++)
+    {
+        for (int y = 0; y < 10; y++)
+        {
+            cout << x << " * " << y << " = " << x * y << endl;
+        }
+        cout << endl;
+    }
+    */
+
+
+    /*
+    for (int x = 0, y = 0; x < 100; x++)
+    {
+        y += (x % 10 == 0);
+
+        cout << y << " * " << x % 10 << " = " << (x % 10) * y << endl;
+    }
+    */
+    
+
+
+    /*
+    for (int x = 0, y = 0; y < 10; x++)
+    {
+        if (x == 10) {
+            x = 0;
+            cout << endl;
+
+            if (++y == 10)
+                break;
+        }
+
+        cout << y << " * " << x << " = " << x * y << endl;
+    }
+    */
 }
