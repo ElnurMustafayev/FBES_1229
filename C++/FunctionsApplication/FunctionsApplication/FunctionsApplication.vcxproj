@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{d65218d5-7aef-45ca-9735-0c0086d2c4b0}</ProjectGuid>
-    <RootNamespace>FunctionsApp</RootNamespace>
+    <ProjectGuid>{c8618dea-0353-4ad8-a194-7768e91011a5}</ProjectGuid>
+    <RootNamespace>FunctionsApplication</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="FunctionsApp.cpp" />
+    <ClCompile Include="FunctionsApplication.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

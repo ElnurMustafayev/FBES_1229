@@ -58,11 +58,11 @@ using namespace std;
 //        cout << endl;
 //    }
 //}
- 
- 
- 
- 
- 
+
+
+
+
+
 //void DrawSquare(char symbol) {
 //    for (int x = 0; x < 5; x++) {
 //        for (int y = 0; y < 5; y++) {
@@ -103,6 +103,100 @@ using namespace std;
 //    }
 //}
 
+
+
+//void IsAdult(int age) {
+//    if (age >= 18)
+//        cout << "User is adult!" << endl;
+//    else
+//        cout << "User is not adult!" << endl;
+//}
+
+
+
+
+//bool IsAdult(int age) {
+//    /*bool check = true;
+//    return check;*/
+//    cout << "Start" << endl;
+//
+//    if (age >= 18)
+//        return true;
+//    else
+//        return false;
+//
+//    cout << "End" << endl;
+//}
+
+
+
+//bool InfinityLoop() {
+//    cout << "Start" << endl;
+//    while (true) {
+//        return true;
+//    }
+//    cout << "End" << endl;
+//}
+
+
+
+
+//bool IsAdult(int age) {
+//    return age >= 18;
+//    
+//    /*if (age >= 18)
+//        return true;
+//    else
+//        return false;*/
+//}
+
+
+
+
+//void IsPrimary(int num) {
+//    bool prim = true;
+//
+//    for (int i = 2; i < (num / 2) + 1; i++)
+//    {
+//        if (num % i == 0) {
+//            prim = false;
+//            break;
+//        }
+//    }
+//
+//    if (prim)
+//        cout << "Primary" << endl;
+//}
+
+
+
+
+
+//bool IsPrimary(int num) {
+//    bool prim = true;
+//
+//    for (int i = 2; i < num; i++)
+//    {
+//        if (num % i == 0) {
+//            prim = false;
+//            break;
+//        }
+//    }
+//
+//    return prim;
+//}
+
+
+
+
+bool Func(int age) {
+    int num = 123;
+    return num;
+}
+
+
+
+
 void main()
 {
     //char symbol = 'a';
@@ -113,4 +207,13 @@ void main()
     //DrawSquare('@');
 
     //DrawSquare(5, 10, 'a');
+
+    //IsAdult(15);
+
+    //InfinityLoop();
+
+    //cout << IsAdult(15) << endl;
+
+    /*bool result = Func(7);
+    cout << result << endl;*/
 }
