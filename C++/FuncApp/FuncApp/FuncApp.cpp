@@ -219,6 +219,8 @@ int Func(int num1, int num2 = 10, char symbol = 'a') {
     //return 0;
 }
 
+void SayHello();
+int GetNegativeNumber(int number);
 
 void main()
 {
@@ -249,4 +251,12 @@ void main()
 
     /*bool result = Func(7);
     cout << result << endl;*/
+}
+
+void SayHello() {
+    cout << "Hello World!" << endl;
+}
+
+int GetNegativeNumber(int number) {
+    return (number <= 0) ? number : -number;
 }
