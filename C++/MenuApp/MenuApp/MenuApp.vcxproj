@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{ee58feea-0bb2-4b86-bc6c-e27f2d34ade6}</ProjectGuid>
-    <RootNamespace>AppWithMenu</RootNamespace>
+    <ProjectGuid>{2e0e47e9-75d4-43e9-879d-6021f79d749e}</ProjectGuid>
+    <RootNamespace>MenuApp</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AppWithMenu.cpp" />
+    <ClCompile Include="MenuApp.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
