@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int main()
+void Main()
 {
 	if (false) {
 		char word[] = "qwerty";
