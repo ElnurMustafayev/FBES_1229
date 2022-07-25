@@ -66,3 +66,11 @@ void Main()
 		cout << num << endl;
 	}
 }
+
+void Method(int number) {
+	number = 123;
+}
+
+void Func(int num) {
+	num = 555;
+}

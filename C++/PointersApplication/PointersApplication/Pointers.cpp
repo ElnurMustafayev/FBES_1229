@@ -3,7 +3,52 @@
 
 using namespace std;
 
-int main() {
+int GetMin(int nums[], const int lenght) {
+	if (lenght <= 0)
+		return 0;
+
+	int min = nums[0];
+
+	for (int i = 0; i < lenght; i++)
+	{
+		if (nums[i] < min)
+			min = nums[i];
+	}
+
+	return min;
+}
+
+
+
+int GetUppersCount(char symbol1, char symbol2, char symbol3, char symbol4) {
+	int count = 0;
+
+	char symbols[] = {
+		symbol1,
+		symbol2,
+		symbol3,
+		symbol4,
+		'\0'
+	};
+
+	for (int i = 0; symbols[i] != '\0'; i++)
+		count += ('A' >= symbols[i] && symbols[i] >= 'Z');
+
+	return count;
+
+
+
+	return ('A' >= symbol1 && symbol1 >= 'Z')
+		+ ('A' >= symbol2 && symbol2 >= 'Z')
+		+ ('A' >= symbol3 && symbol3 >= 'Z')
+		+ ('A' >= symbol4 && symbol4 >= 'Z');
+}
+
+
+int MMain() {
+	int nums[] = {5555,12345314,453453343,1243453452,41241};
+	GetMin(nums, 5);
+
 	/*char message[] = "Hello World!";
 	SaySomething(message);*/
 
@@ -95,4 +140,6 @@ int main() {
 		cout << *numberPtr << endl;
 		*/
 	}
+
+	return 0;
 }

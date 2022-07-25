@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="Pointers.cpp" />
     <ClCompile Include="PointersApplication.cpp" />
+    <ClCompile Include="PointersArrays.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Functions.h" />
