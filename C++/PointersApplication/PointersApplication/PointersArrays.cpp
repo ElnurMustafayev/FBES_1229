@@ -1,8 +1,79 @@
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
+
+int* SetRandomNumbers(int* nums, const int length) {
+	for (int i = 0; i < length; i++) {
+		*(nums + i) = rand();
+		nums[i] = rand();
+	}
+
+	return nums;
+}
+
+int* GetZeroedArray(int nums[], const int length) {
+	for (int i = 0; i < length; i++)
+		nums[i] = 123;
+
+	return nums;
+}
+
+void PrintArray(int* nums, const int length) {
+	for (int i = 0; i < length; i++)
+		cout << nums[i] << endl;
+
+	cout << "\n\n\n";
+}
+
 int main() {
+	/*const int length = 6;
+	int nums[length] = { 436,54745,34523,523523,5,11 };
+
+	PrintArray(nums, length);
+	
+	
+	int* result = GetZeroedArray(nums, length);
+	result = SetRandomNumbers(result, length);
+
+	cout << result[0] << endl;
+	cout << result[1] << endl;
+	cout << result[2] << endl;
+	
+	
+	PrintArray(nums, length);*/
+
+	//srand(time(0));
+
+	/*
+	srand(time(0));
+	cout << rand() % 100 << endl;
+	cout << rand() % 100 << endl;
+	cout << rand() % 100 << endl;
+	cout << rand() % 100 << endl;
+	*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	//int num = 123;
 	//int* num = &num;
 	//cout << sizeof(long long) << endl;
@@ -68,4 +139,23 @@ int main() {
 	//cout << *(numsPtr + 8) << endl;
 	
 	//cout << (&nums[2][2] - &nums[0][0]) * sizeof(int) << endl;
+
+
+	/*int nums[] = { 1,2,3,4,5 };
+
+	cout << nums[3] << endl;
+	int* numsPtr = nums;
+	cout << *(numsPtr + 3) << endl;*/
+
+	/*
+	* int nums[3][3] = {
+		{1,2,3},
+		{4,5,6},
+		{7,8,9}
+	};
+
+	cout << nums[1][1] << endl;
+	int* numsPtr = nums[0];
+	cout << *(numsPtr + 4) << endl;
+	*/
 }
