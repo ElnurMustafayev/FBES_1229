@@ -141,6 +141,9 @@
   <ItemGroup>
     <ClCompile Include="DynamicMemoryApp.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ArrayFunctions.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
