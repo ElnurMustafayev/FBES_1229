@@ -70,8 +70,8 @@ int main()
 
 
 
-	/*
-	int number = -2147483648;
+
+	/*int number = 2147483647;
 	int* numberPtr = &number;
 
 	bool* byteptr = (bool*)numberPtr;
@@ -79,8 +79,8 @@ int main()
 	cout << *(byteptr + 0) << endl;
 	cout << *(byteptr + 1) << endl;
 	cout << *(byteptr + 2) << endl;
-	cout << *(byteptr + 3) << endl;
-	*/
+	cout << *(byteptr + 3) << endl;*/
+
 
 
 
@@ -96,14 +96,14 @@ int main()
 
 	Print(arr, length);
 	*/
-	
 
-	
-	int length = 5;
+
+
+	/*int length = 5;
 	int* arr = new int[length] {
 		1, 2, 3, 4, 5
-	};
-	
+	};*/
+
 	/*arr = DeleteElement(arr, &length);
 	cout << arr << endl;
 	arr = DeleteElement(arr, &length);
@@ -125,7 +125,7 @@ int main()
 	arr = DeleteElement(arr, &length);
 	cout << arr << endl;
 	Print(arr, length);*/
-	
+
 
 
 	//arr = DeleteElement(nullptr, &length);
@@ -137,4 +137,59 @@ int main()
 	numPtr = 0;
 	numPtr = nullptr;
 	cout << numPtr << endl;*/
+
+	/*int length = 1000;
+	int* arr = new int[length]{};
+
+	for (int i = 0; i < 100000; i++)
+	{
+		if (i % 10000 == 0) {
+			cin.ignore();
+			cin.get();
+		}
+
+		arr = AddElement(arr, &length, i);
+	}*/
+
+
+	/*int* nums1 = new int[10000000];
+	int* nums2 = new int[10000000];
+	int* nums3 = new int[10000000];
+	int* nums4 = new int[10000000];
+	int* nums5 = new int[10000000];
+
+	delete[] nums1;
+	delete[] nums2;
+	delete[] nums3;
+	delete[] nums4;
+	delete[] nums5;*/
+
+	/*{
+		int stackArray[10000];
+		int* nums5 = stackArray;
+		delete[] nums5;
+	}
+	cout << "end of local" << endl;
+	cin.get();*/
+
+	/*int nums[10];
+	delete[] nums;*/
+
+
+	
+	//int* nums = new int[100000];
+
+	//delete nums;
+
+
+	//int num = 100;
+	//int* numm = new int(100);
+	//delete numm;
+
+	//cout << *numm << endl;
+	////numm = nullptr;
+
+	//if (numm != nullptr) {}
+	////cout << numm << endl;
+	////cout << numm - &num << endl;
 }

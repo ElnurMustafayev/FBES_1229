@@ -26,6 +26,9 @@ int* AddElement(int* nums, int* length, int newElement) {
 	for (int i = 0; i < *length; i++)
 		newArray[i] = nums[i];
 
+	// DELETE OLD ARRAY
+	delete[] nums;
+
 	// ADD NEW ELEMENT TO END
 	newArray[*length] = newElement;
 	(*length)++;
