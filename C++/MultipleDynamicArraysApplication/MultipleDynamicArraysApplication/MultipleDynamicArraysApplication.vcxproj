@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{3ddae5ea-d21a-4950-b019-2341e1446836}</ProjectGuid>
-    <RootNamespace>MultipleDynamicArraysApp</RootNamespace>
+    <ProjectGuid>{dec1c8ee-9dc9-45b7-b0e7-2bc4f3a381c2}</ProjectGuid>
+    <RootNamespace>MultipleDynamicArraysApplication</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,10 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="MultipleDynamicArraysApp.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Functions.h" />
+    <ClCompile Include="MultipleDynamicArraysApplication.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
