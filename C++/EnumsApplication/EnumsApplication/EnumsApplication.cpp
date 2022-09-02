@@ -3,72 +3,72 @@
 #include <iostream>
 #include <cstring>
 
+#include "UserRegistration.h"
+
 using namespace std;
 
-//void Register() {
-//    char name[30];
-//    cout << "Name: ";
-//    cin >> name;
-//
-//    char surname[30];
-//    cout << "Surname: ";
-//    cin >> surname;
-//
-//    int userInput;
-//    cout << "Gender (input '1' to male): ";
-//    cin >> userInput;
-//    bool isMale = userInput == 1;
-//
-//
-//
-//    system("cls");
-//    
-//    const char* genderRefere = isMale ? "Mr" : "Mrs";
-//
-//    cout << genderRefere << endl;
-//}
+//const int male = 0;
+//const int female = 1;
+//const int other = 2;
 
-
-
-enum NOTIFICATION_STATUSES {
-	success,
-	info,
-	warning,
-	error
-};
-
-
-
-void PrintNotification(const char* message, NOTIFICATION_STATUSES status) {
-
-	if (status == NOTIFICATION_STATUSES::success)
-		cout << "Coungratulations!!!" << endl;
-
-	switch (status)
-	{
-		case NOTIFICATION_STATUSES::success:
-			cout << "Success: " << message << endl;
-			break;
-		case NOTIFICATION_STATUSES::info:
-			cout << "Info: " << message << endl;
-			break;
-		case NOTIFICATION_STATUSES::warning:
-			cout << "Warning: " << message << endl;
-			break;
-		case NOTIFICATION_STATUSES::error:
-			cout << "Error: " << message << endl;
-			break;
-		default:
-			break;
-	}
-}
-
-
+//enum GENDERS : int {
+//	male = 0,
+//	female = 1,
+//	other,
+//};
 
 int main()
 {
-    //Register();
+	/*const char* genderStr = "Male";
+	genderStr = "Female";
+	genderStr = "Other";*/
 
-	PrintNotification("User logined", NOTIFICATION_STATUSES::success);
-	PrintNotification("User not found", NOTIFICATION_STATUSES::error);
+
+	//int genderNum = 0;		// male
+	//genderNum = 1;			// female
+	//genderNum = 2;			// other
+
+	/*int genderNum = male;
+	genderNum = female;
+	genderNum = other;
+	genderNum = 5;
+
+	if (genderNum == other)
+		cout << "WOOOOW" << endl;*/
+
+	/*GENDERS gender1 = GENDERS::male;
+	GENDERS gender2 = GENDERS::female;
+
+	cout << (gender1 == GENDERS::other) << endl;
+	cout << (gender1 == gender2) << endl;*/
+
+	//GENDERS* genderPtr = new GENDERS(GENDERS::male);
+	/*int num = 123;
+	cout << &gender << endl << &num << endl;*/
+
+	//cout << sizeof(GENDERS) << endl;
+
+
+	/*GENDERS genders[3][2] {
+		{GENDERS::male, GENDERS::male},
+		{GENDERS::male, GENDERS::male},
+		{GENDERS::male, GENDERS::male}
+	};*/
+
+
+
+	/*int genderInput;
+	cin >> genderInput;
+
+	GENDERS gender = (GENDERS)genderInput;
+
+	cout << gender << endl;*/
+
+
+	char* name = new char[100];
+	char* surname = new char[100];
+	GENDERS gender;
+
+	Register(name, surname, &gender);
+	cout << Validate(gender) << endl;
 }
