@@ -125,6 +125,27 @@ int main()
     Print<bool*, long long>(new bool(true));*/
 
     //CheckSize<char>();
+    /*try {
+        GetNumber('}');
+    }
+    catch (int errorCode) {
+        cout << errorCode << endl;
+    }*/
 
 
+
+//y:
+//    cout << "One" << endl;
+//
+//    cout << "Two" << endl;
+//
+//    goto x;
+//
+//    cout << "Three" << endl;
+//
+//    cout << "Four" << endl;
+//x:
+//    goto y;
+//
+//    cout << "Five" << endl;
 }

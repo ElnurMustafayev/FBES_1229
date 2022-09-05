@@ -53,3 +53,30 @@ using namespace std;
 //double Sum(double num1, double num2) {
 //	return num1 + num2;
 //}
+
+
+//template<typename T>
+//void GetNumber(T num) {
+//	T counter = 0;
+//	do {
+//		cout << counter << endl;
+//	} while (counter++ < num);
+//}
+//
+//template<>
+//void GetNumber<char>(char symbol) {
+//	bool isUpper = (symbol >= 65 && symbol <= 90);
+//	bool isLower = (symbol >= 97 && symbol <= 122);
+//
+//	bool isLetter = isUpper || isLower;
+//
+//	if (isLetter == false) {
+//		throw 10;
+//	}
+//
+//	char counter = isUpper ? 'A' : 'a';
+//
+//	do {
+//		cout << counter << endl;
+//	} while (counter++ != symbol);
+//}
