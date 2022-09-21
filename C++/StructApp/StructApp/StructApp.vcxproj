@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="StructApp.cpp" />
+    <ClCompile Include="WithStructs.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FunctionsForArrays.h" />

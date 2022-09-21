@@ -2,9 +2,9 @@
 #include <cstdio>
 #include "FunctionsForArrays.h"
 
-int main()
+void oldMain()
 {
-	AddNewPerson("Ann", 15, GENDERS::Female);
+	/*AddNewPerson("Ann", 15, GENDERS::Female);
 	AddNewPerson("Bob", 7, GENDERS::Other);
 	AddNewPerson("Mike", 35, GENDERS::Male);
 
@@ -15,5 +15,5 @@ int main()
 	}
 	catch (const char* message) {
 		cout << "Error: " << message << endl;
-	}
+	}*/
 }

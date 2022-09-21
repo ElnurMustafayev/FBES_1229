@@ -18,6 +18,9 @@
     <ClCompile Include="StructApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WithStructs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FunctionsForArrays.h">
