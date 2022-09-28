@@ -22,6 +22,8 @@ void AddNewEmployee(Company& company, Employee newEmployee) {
 
 
 void PrintEmployees(Employee* employees, int count) {
+	cout << "Employees count: " << count << "\n\n";
+
 	for (int i = 0; i < count; i++) {
 		cout << employees[i].name << endl;
 		cout << employees[i].surname << endl;

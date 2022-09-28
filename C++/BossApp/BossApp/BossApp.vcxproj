@@ -146,6 +146,7 @@
     <ClInclude Include="CompanyFunctions.h" />
     <ClInclude Include="Employee.h" />
     <ClInclude Include="EmployeeFunctions.h" />
+    <ClInclude Include="FileFunctions.h" />
     <ClInclude Include="Genders.h" />
     <ClInclude Include="KeyboardKeys.h" />
     <ClInclude Include="MenuFunctions.h" />

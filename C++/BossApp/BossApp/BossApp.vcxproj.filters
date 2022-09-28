@@ -50,5 +50,8 @@
     <ClInclude Include="EmployeeFunctions.h">
       <Filter>Header Files\Functions</Filter>
     </ClInclude>
+    <ClInclude Include="FileFunctions.h">
+      <Filter>Header Files\Functions</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

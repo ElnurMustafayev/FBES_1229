@@ -11,11 +11,12 @@
 using namespace std;
 
 
-const int menuLength = 3;
+const int menuLength = 4;
 char** menu = new char* [menuLength] {
 	(char*)"Add new Employee",
-		(char*)"Show Employees",
-		(char*)"Exit",
+	(char*)"Show Employees",
+	(char*)"Save",
+	(char*)"Exit",
 };
 
 
@@ -35,4 +36,10 @@ void PrintMenu(char** menu, int menuLength, int cursor) {
 			cout << "  " << menu[i] << endl;
 		}
 	}
+}
+
+
+void Goodbye() {
+	system("cls");
+	cout << "Goodbye User" << endl;
 }
