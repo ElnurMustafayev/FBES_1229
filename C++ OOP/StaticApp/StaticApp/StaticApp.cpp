@@ -18,7 +18,6 @@ using namespace std;
 //}
 
 
-
 int main()
 {
     /*IncrementNum(5);
@@ -29,11 +28,10 @@ int main()
     CallsCounter();
     CallsCounter();*/
 
-    Person p1 = Person();
+    /*Person p1 = Person();
     Person p2 = Person();
     Person p3 = Person();
 
     cout << p3.counter << endl;
-    cout << Person::counter << endl;
-
+    cout << Person::counter << endl;*/
 }
