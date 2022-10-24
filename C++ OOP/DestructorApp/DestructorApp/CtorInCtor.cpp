@@ -1,30 +1,31 @@
 #include <iostream>
 
 using namespace std;
-class MyClass {
-	int age;
-	bool check;
-public:
 
-	MyClass(int num)
-	{
-		MyClass(10 > 78, "test");
-		cout << "A" << endl;
-	}
-
-	MyClass(int num) : MyClass(10 > 78, "test")
-	{
-		cout << "A" << endl;
-	}
-
-
-
-
-	MyClass(bool check, const char* word) 
-	{
-		this->age = 100;
-	}
-};
+//class MyClass {
+//	int age;
+//	bool check;
+//public:
+//
+//	MyClass(int num)
+//	{
+//		MyClass(10 > 78, "test");
+//		cout << "A" << endl;
+//	}
+//
+//	MyClass(int num) : MyClass(10 > 78, "test")
+//	{
+//		cout << "A" << endl;
+//	}
+//
+//
+//
+//
+//	MyClass(bool check, const char* word) 
+//	{
+//		this->age = 100;
+//	}
+//};
 
 
 //MyClass obj = MyClass(123);
@@ -40,7 +41,7 @@ public:
 //	char symbol2 = 'Z';
 //} p1;
 
-int main()
+void OldMain()
 {	
 	/*bool* ptr = (bool*)&p1;
 
@@ -54,6 +55,5 @@ int main()
 
 	cout << *(ptr) << endl;*/
 
-	MyClass obj = MyClass(123);
-
+	//MyClass obj = MyClass(123);
 }

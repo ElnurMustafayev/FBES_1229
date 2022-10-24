@@ -15,7 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DestructorApp.cpp">
+    <ClCompile Include="CtorInCtor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Destructors.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
