@@ -116,15 +116,123 @@ void ShowPeopleInfo() {
 	cout << "Dead: " << Person::DeadCount << endl;
 }
 
+
+
+void Func() {
+	cout << "Start" << endl;
+
+	if (true) {
+		Person p = Person();
+
+		cout << p.age << endl;
+	}
+	cout << "End" << endl;
+}
+
+
+
+
+class Car {
+public:
+	double maxSpeed;
+	string model;
+
+	Car(double maxSpeed, string model) {
+		this->maxSpeed = maxSpeed;
+		this->model = model;
+	}
+
+	~Car() {
+		cout << "Destructor" << endl;
+	}
+};
+
+
+
+
+
+
+
+class Test {
+public:
+	int* arr;
+
+	Test() {
+	}
+
+	~Test() {
+		cout << "Destructor" << endl;
+	}
+};
+
+
+
+int* ptr;
+
+
+void ShowMemory() {
+	for (int i = -10; i < 10; i++)
+	{
+		cout << "0x" << (ptr + i) << "\t" << *(ptr + i) << endl;
+	}
+
+	cout << "\n\n\n";
+}
+
+
+
+Test GetObject() {
+	Test obj = Test();
+
+	int arr[5]{
+		1,2,3,4,5
+	};
+
+	ptr = arr;
+
+	obj.arr = arr;
+	
+	//cout << "Before: " << endl;
+	//ShowMemory();
+
+	return obj;
+}
+
 int main() {
+	/*Test temp = Test();
+
+	
+	temp = GetObject();
+
+	cout << "After: " << endl;*/
+	//ShowMemory();
+
+	/*cout << temp.arr[0] << endl;
+	cout << temp.arr[1] << endl;
+	cout << temp.arr[2] << endl;
+	cout << temp.arr[3] << endl;
+	cout << temp.arr[4] << endl;*/
+
+
+	/*cout << "Start" << endl;
+
+	Car* car1 = new Car(360, "BMW M5");
+	delete car1;
+
+	Car car2 = Car(360, "BMW M5");
+	car2.~Car();
+
+	cout << "End" << endl;*/
+
+
 	/*Func(10, 15);
 	Func(10);*/
 
 
-	{
+	/*{
 		Person p3 = Person("Bob", 7);
 		Person p4 = Person();
 	}
 
-	ShowPeopleInfo();
+	ShowPeopleInfo();*/
 }
