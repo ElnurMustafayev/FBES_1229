@@ -142,6 +142,9 @@
     <ClCompile Include="DateTimeApp.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DateTime.h" />
+    <ClInclude Include="Exception.h" />
+    <ClInclude Include="Functions.h" />
     <ClInclude Include="Person.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
