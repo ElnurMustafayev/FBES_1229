@@ -41,21 +41,33 @@ public:
 	Number() : value(0) {}
 	Number(int value) : value(value) {}
 
+	void operator +(Number& num) {
+		cout << this << endl;
+		num + *this;
+	}
 	int operator +(int otherNumber) {
 		return this->value + otherNumber;
 	}
-
 	void operator += (int otherNumber) {
 		this->value += otherNumber;
 	}
-
 	int operator -(int otherNumber) {
 		return this->value - otherNumber;
 	}
-
 	int operator -=(int otherNumber) {
 		return this->value -= otherNumber;
 	}
+	double operator / (int number) {
+		if (number == 0)
+			throw "divider can not be 0!";
+
+		return number / this->value;
+	}
+
+
+
+
+
 
 	bool operator >(string word) {
 		return this->value > word.length();
@@ -65,28 +77,39 @@ public:
 		return this->value - value;
 	}
 
-	bool operator == (int number) {
-		return number == this->value;
-	}
-
-	double operator / (int number) {
-		if (number == 0)
-			throw "divider can not be 0!";
-
-		return number / this->value;
-	}
-
-	bool operator == (Number number) {
-		return number.value == this->value;
-	}
-
-	bool operator != (Number number) {
-		return !(*this == number);
-		return !this->operator==(number);
-	}
-
 	template<typename T>
 	bool operator != (T number) {
 		return number == this->value;
+	}
+
+	bool operator == (Number& otherNumber) {
+		//if (otherNumber.value == this->value)
+		//cout << this << " == "  << &otherNumber << endl;
+
+		/*if (this == &otherNumber)
+			return true;
+		else
+			return false;*/
+
+		return (this == &otherNumber);
+	}
+
+	template<typename T>
+	bool operator == (T) {
+		return sizeof(*this) == sizeof(T);
+	}
+
+
+	int operator ++ () {
+		return ++this->value;
+	}
+
+	int operator ++ (int) {
+		return this->value++;
+	}
+
+
+	void operator ^(int) {
+		cout << "Test";
 	}
 };

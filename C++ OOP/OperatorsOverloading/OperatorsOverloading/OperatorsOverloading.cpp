@@ -13,8 +13,16 @@ using namespace std;
 //    }
 //};
 
+
+int Increment(int num) {
+    return ++num;
+}
+
 int main()
 {
+    /*int num = 100;
+    num = Increment(num);
+    cout << num << endl;*/
 
 
     /*Number num = 100;
@@ -60,11 +68,25 @@ int main()
     //cout << (num1 != num2) << endl;
 
 
-    String str1 = "One";
+    /*String str1 = "One";
     String str2 = "Two";
 
     str1 += str2;
 
-    cout << str1.text << endl;
+    cout << str1.text << endl;*/
 
+
+    /*Number num1 = 100;
+    cout << num1++ << endl;
+    cout << num1.value << endl;
+    cout << ++num1 << endl;*/
+
+    //Number num2 = 101;
+
+    //cout << (num1 == num1) << endl;
+
+
+    
+    /*Number num1 = 100;
+    num1 ^ 5;*/
 }
