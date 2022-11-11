@@ -14,9 +14,9 @@ int main()
 
 
 
-	Dog dog = Dog("Teddy", 5, true);
+	/*Dog dog = Dog("Teddy", 5, true);
 
-	dog.Huf();
+	dog.Huf();*/
 }
 
 // Parameterless Animal constructor
