@@ -1,8 +1,15 @@
 #pragma once
 
 #include <iostream>
+#include "Exceptions.h"
 
 using namespace std;
+
+
+enum ListNodeType {
+	head, tail
+};
+
 
 template<typename T>
 class ListNode {
@@ -22,26 +29,86 @@ class LinkedList {
 	int size = 0;
 
 public:
-	void Push(T newElement) {
-		ListNode<T>* newNode = new ListNode<T>(newElement);
-
-		// first
-		if (this->head == nullptr) {
-			this->head = newNode;
-			this->tail = newNode;
+	void Remove(int index) {
+		if (index < 0 || index >= this->size || this->size == 0) {
+			throw IndexOutOfRangeException(index, "Incorrect Index in Remove!");
 		}
-		// not first
+
+		if (this->size == 1) {
+			delete this->head;
+			this->head = nullptr;
+			this->tail = nullptr;
+		}
+		else if (index == 0) {
+			ListNode<T>* temp = this->head->next;
+			delete this->head;
+
+			this->head = temp;
+		}
+		else if (index == this->size - 1) {
+			ListNode<T>* cursor = this->head;
+
+			for (size_t i = 1; i < this->size - 1; i++)
+			{
+				cursor = cursor->next;
+			}
+			cursor->next = nullptr;
+
+			delete this->tail;
+
+			this->tail = cursor;
+		}
 		else {
-			this->tail->next = newNode;
-			this->tail = newNode;
+			ListNode<T>* cursor = this->head;
 
-			/*ListNode<T>* cursor = this->head;
-
-			while (cursor->next != nullptr) {
+			for (size_t i = 0; i < index - 1; i++)
+			{
 				cursor = cursor->next;
 			}
 
-			cursor->next = newNode;*/
+			ListNode<T>* toDelete = cursor->next;
+
+			cursor->next = cursor->next->next;
+
+			delete toDelete;
+		}
+
+		this->size--;
+	}
+
+
+	void Insert(T newElement, int index) {
+		if (index < 0 || index > this->size) {
+			throw IndexOutOfRangeException(index, "Incorrect Index in Insert!");
+		}
+
+		ListNode<T>* newNode = new ListNode<T>(newElement);
+
+		// first
+		if (this->size == 0) {
+			this->head = newNode;
+			this->tail = newNode;
+		}
+		else if (index == 0) {
+			newNode->next = this->head;
+			this->head = newNode;
+		}
+		//last
+		/*else if (index == this->size) {
+			this->tail->next = newNode;
+			this->tail = newNode;
+		}*/
+		// middle
+		else {
+			ListNode<T>* cursor = this->head;
+
+			for (size_t i = 0; i < index - 1; i++)
+			{
+				cursor = cursor->next;
+			}
+			
+			newNode->next = cursor->next->next;
+			cursor->next = newNode; 
 		}
 
 		this->size++;
