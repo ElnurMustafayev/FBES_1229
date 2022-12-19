@@ -1,38 +1,30 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
-
 using namespace std;
+
+
+sf::Texture heroTexture = sf::Texture();
+sf::Texture grassTexture = sf::Texture();
+
+#include "Hero.h"
+
 
 int main()
 {
+    srand(time(0));
+
+    // - - - - - LOAD - - - - - 
+    heroTexture.loadFromFile("Assets\\hero.png");
+    grassTexture.loadFromFile("Assets\\grass.png");
+
     const float wWidth = 800;
     const float wHeight = 800;
-
     sf::RenderWindow window(sf::VideoMode(wWidth, wHeight), "2D Game");
 
+    Hero hero = Hero(&heroTexture, 38, 41, 3);
+    Object grass = Object(&grassTexture, wWidth, wHeight, (wWidth / 500));
 
-
-
-
-    sf::Texture heroTexture = sf::Texture();
-    heroTexture.loadFromFile("Assets\\hero.png");
-
-
-    double spriteCounter = 0;
-    const int animationsCount = 10;
-
-    int heroHeight = 41;
-    int heroWidth = 38;
-
-    int heroAnimationY = 7;
-
-    sf::Sprite heroSprite = sf::Sprite(heroTexture);
-    heroSprite.setOrigin(21, 18);
-    heroSprite.setScale(5, 5);
-    heroSprite.setTextureRect(sf::IntRect(heroWidth * spriteCounter, heroHeight * heroAnimationY, heroWidth, heroHeight));
-    heroSprite.setPosition(wWidth / 2, wHeight / 2);
-
-
+    hero.SetPosition(sf::Vector2f(400, 400));
 
     while (window.isOpen())
     {
@@ -43,15 +35,36 @@ int main()
         {
             if (event.type == sf::Event::Closed)
                 window.close();
+
+
+            if (event.type == sf::Event::KeyPressed) {
+                switch (event.key.code)
+                {
+                case sf::Keyboard::Key::Down:
+                    hero.SetState(HeroState::down);
+                    break;
+                case sf::Keyboard::Key::Left:
+                    hero.SetState(HeroState::left);
+                    break;
+                case sf::Keyboard::Key::Up:
+                    hero.SetState(HeroState::up);
+                    break;
+                case sf::Keyboard::Key::Right:
+                    hero.SetState(HeroState::right);
+                    break;
+                }
+
+                hero.Go(event.key.shift);
+            }
+
+            if (event.type == sf::Event::KeyReleased) {
+                hero.SetState(HeroState::stay);
+            }
         }
 
-        spriteCounter += 0.05;
-        heroSprite.setTextureRect(sf::IntRect(heroWidth * ((int)spriteCounter % animationsCount), heroHeight * heroAnimationY, heroWidth, heroHeight));
-       
-        heroSprite.setPosition(heroSprite.getPosition().x + 0.1, heroSprite.getPosition().y);
-
-        window.clear(sf::Color::Green);
-        window.draw(heroSprite);
+        window.clear();
+        window.draw(grass.sprite);
+        window.draw(hero.sprite);
         window.display();
     }
 
