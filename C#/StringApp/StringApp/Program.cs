@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
 namespace StringApp {
     class Program {
@@ -65,6 +66,159 @@ namespace StringApp {
             //}
 
             //Console.WriteLine($"User input: \"{input}\"");
+
+
+
+
+
+
+
+
+            //Console.WriteLine(string.IsNullOrEmpty("qwerty"));          // False
+            //Console.WriteLine(string.IsNullOrEmpty("     "));           // False
+            //Console.WriteLine(string.IsNullOrWhiteSpace("     "));      // True  
+            //Console.WriteLine(string.IsNullOrEmpty(""));                // True
+            //Console.WriteLine(string.IsNullOrEmpty(null));              // True
+
+
+            //Console.OutputEncoding = Encoding.Unicode;
+
+            //string symbol = "Hello \u1234 World!";
+
+            //Console.WriteLine(symbol);
+
+
+            //string str = "Hello World!";
+
+            /*
+            int; Int32;
+            long; Int64;
+            short; Int16;
+            byte; Byte;
+            string; String;
+            decimal; Decimal;
+            */
+
+            //string str = "Hello World!";
+
+            //Console.WriteLine(str.EndsWith('d'));
+            //Console.WriteLine(str.EndsWith('!'));
+            //Console.WriteLine(str.EndsWith("World!"));
+            //Console.WriteLine(str.EndsWith("Hello"));
+
+
+
+            //string str = "Hello World!";
+
+            //char symbolToFind = '!';
+
+            //int index = str.IndexOf(symbolToFind);
+
+            //if(index == -1) {
+            //    Console.WriteLine($"Symbol '{symbolToFind}' not found in '{str}'!");
+            //}
+            //else {
+            //    Console.WriteLine($"IndexOf: Symbol '{symbolToFind}' in '{str}' is on index: {index}");
+            //}
+
+
+
+            // text1 (search in)            // Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            // text2 (search by)            // amet
+            // success:     Index: {index}
+            // error:       {text2} Not found in {text1}!
+
+            //while(true) {
+            //    Console.Clear();
+            //    Console.Write("Text to search in: ");
+            //    string searchIn = Console.ReadLine();
+            //    Console.Write("Text to search by: ");
+            //    string searchBy = Console.ReadLine();
+
+            //    // error
+            //    if(string.IsNullOrWhiteSpace(searchIn) || string.IsNullOrWhiteSpace(searchBy)) {
+            //        Console.WriteLine("Text can not be empty!");
+            //        Console.ReadKey();
+            //        continue;
+            //    }
+
+            //    int index = searchIn.IndexOf(searchBy);
+
+            //    // error
+            //    if(index == -1) {
+            //        Console.WriteLine($"'{searchBy}' Not found in '{searchIn}'!");
+            //        Console.ReadKey();
+            //        continue;
+            //    }
+
+            //    // success
+            //    else {
+            //        Console.WriteLine($"Index: {index}");
+            //        break;
+            //    }
+            //}
+
+
+            //string str = "Hello World!";
+
+            //Console.WriteLine(str.IndexOf('o'));        // 4
+            //Console.WriteLine(str.LastIndexOf('o'));    // 7
+
+
+            //int pad = 15;
+
+            //Console.WriteLine("123".PadLeft(pad));
+            //Console.WriteLine("12345".PadLeft(pad));
+            //Console.WriteLine("12".PadLeft(pad));
+            //Console.WriteLine("123456789".PadLeft(pad));
+            //Console.WriteLine("1".PadLeft(pad));
+            //Console.WriteLine("1234567".PadLeft(pad));
+            //string str = "Hello World";
+            //string result = str.PadLeft(20);
+
+            //Console.WriteLine(result + "!");
+
+
+
+            //string str = "Hello World!";
+            //Console.WriteLine($"Before: {str}");
+            //str = str.Remove(3);
+            //Console.WriteLine($"After: {str}");
+
+
+
+
+            //string str = "Hello World!";
+
+            //string result1 = str.Replace('l', '$');
+            //string result2 = str.Replace("or", "ororororor");
+
+            //Console.WriteLine(str);
+            //Console.WriteLine(result1);
+            //Console.WriteLine(result2);
+
+            //char symbol = 'W';
+            //string str = "Hello World!";
+
+            //if(str.Contains(symbol)) {
+            //    string result = str.Substring(str.IndexOf(symbol));
+            //    Console.WriteLine(result);
+            //}
+            //else {
+            //    Console.WriteLine("Symbol not found!");
+            //}
+
+            //string str = " Hello World!    ";
+            //string result = str.Trim(' ');
+
+            //Console.WriteLine($"*{str}*");
+            //Console.WriteLine($"*{result}*");
+
+            //char symbol1 = 'a';
+            //char symbol2 = '0';
+
+            //Console.WriteLine(char.IsDigit(symbol1));
+            //Console.WriteLine(char.IsDigit(symbol2));
         }
     }
 }
