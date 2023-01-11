@@ -58,7 +58,7 @@
 
 
 
-            
+
             // FIN Validation Task
 
             // AA1234567
@@ -66,6 +66,46 @@
 
             // Success: "Validation OK!"
             // Error: "Error message"
+
+
+
+
+
+
+
+
+            // text
+            // separator
+
+            // parts of text
+
+            // input:
+            // text: "qwetqwreqweyqwtyqw qweqwrqwrqwrqrrrrrrr zzz"
+            // separator: ' '
+
+            // output:
+            // 1. "qwetqwreqweyqwtyqw"
+            // 2. "qweqwrqwrqwrqrrrrrrr"
+            // 3. "zzz"
+
+
+            //Console.Write("Text: ");
+            //string text = Console.ReadLine();
+
+            //Console.Write("Separator: ");
+
+            //string separatorStr = Console.ReadLine();
+
+            //if(string.IsNullOrEmpty(separatorStr)) {
+            //    Console.WriteLine("Error: separator is empty!");
+            //}
+            //else {
+            //    string[] parts = text.Split(separatorStr[0]);
+
+            //    for (int i = 0; i < parts.Length; i++) {
+            //        Console.WriteLine($"{i + 1} \"{parts[i]}\"");
+            //    }
+            //}
         }
     }
 }

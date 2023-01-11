@@ -17,9 +17,24 @@ using namespace std;
 //    cout << num << endl;
 //}
 
+//class Test {
+//    int num = 123;
+//public:
+//    static void StaticMethod() {
+//        this->num             // error
+//        NonStaticMethod();    // error
+//    }
+//
+//    void NonStaticMethod() {
+//        this->num;            // ok
+//    }
+//};
 
 int main()
 {
+    /*Test t = Test();
+    Test::NonStaticMethod(t);*/
+
     /*IncrementNum(5);
     IncrementNum(10);
     IncrementNum(15);*/
