@@ -195,7 +195,7 @@ bool Func(int age) {
 }
 
 
-
+void ChangeArray(int* arr);
 
 void main()
 {

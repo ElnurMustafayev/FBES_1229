@@ -1,4 +1,5 @@
-﻿using static System.Net.Mime.MediaTypeNames;
+﻿using System.Reflection.Metadata;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace FunctionsApp {
     class Program {
@@ -61,17 +62,13 @@ namespace FunctionsApp {
         }
 
         static void Main() {
-            int num = 0;
-            ChangeNum(num);
-            ChangeNum(ref num);
-            ChangeNum(ref num);
-            ChangeNum(num);
-            ChangeNum(ref num);
-            Console.WriteLine(num);
-
-
-
-
+            //int num = 0;
+            //ChangeNum(num);
+            //ChangeNum(ref num);
+            //ChangeNum(ref num);
+            //ChangeNum(num);
+            //ChangeNum(ref num);
+            //Console.WriteLine(num);
 
 
             // reference types
@@ -149,6 +146,63 @@ namespace FunctionsApp {
             //    }
             //    break;
             //}
+
+
+
+
+            //string input = Console.ReadLine();
+
+            //bool isDigit = true;
+            //for (int i = 0; i < input.Length; i++) {
+            //    if (char.IsDigit(input[i]) == false) {
+            //        isDigit = false;
+            //        break;
+            //    }
+            //}
+
+            //if(isDigit) {
+            //    int num = Convert.ToInt32(input);
+            //}
+
+
+
+            //string input = "345";
+            //int result = 123;
+
+            //Console.WriteLine(int.TryParse(input, out result));
+            //Console.WriteLine(result);
+
+
+
+
+            //if (int.TryParse(Console.ReadLine(), out int result)) {
+            //    Console.WriteLine(result);
+            //}
+            //else {
+            //    Console.WriteLine("Parsing Error!");
+            //}
+
+
+
+            //int num = 123;
+            //Func(num);
+        }
+
+        static bool MyFunc(ref char symbol, out string name, in bool check) {
+            name = check ? "Bob" : "Marley";
+            return check;
+        }
+
+        static void Func(in int arg) {
+            //arg = 52352;
+        }
+
+        static void Temp(int num) { }
+
+        static void MyFunc(out int num) {
+            Console.WriteLine("Start");
+            num = 777;
+            Console.WriteLine("End");
         }
     }
 }
