@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 
 namespace PropertiesApp {
     class Card {
@@ -50,60 +49,122 @@ namespace PropertiesApp {
         private int age;
 
         public Person(string name, int age) {
-            this.name = name;
-            this.age = age;
+            this.Name = name;
+            this.Age = age;
         }
 
-        // property
+        // properties
         public int Age { 
             get {
                 Console.WriteLine("Getter");
                 return this.age;
             }
             set {
-                Console.WriteLine("Setter");
+                Console.WriteLine($"Setter {value}");
+                this.age = value;
             }
         }
 
-        //public void SetAge(int age) {
-        //    this.age = age;
-        //}
-        //public int GetAge() {
-        //    return this.age;
-        //}
+        public string Name {
+            get {
+                if (string.IsNullOrWhiteSpace(this.name))
+                    return this.name;
 
-        //public void SetName(string name) {
-        //    this.name = name;
-        //}
-        //public string GetName() {
-        //    return this.name;
-        //}
+                return char.ToUpper(this.name[0]) + this.name[1..].ToLower();
+            }
+            set {
+                if(!string.IsNullOrWhiteSpace(value)) {
+                    this.name = value;
+                }
+            }
+        }
     }
 
-    class Program {
+    enum CURRENCIES {
+        azn, rub, usd, euro
+    }
 
-        static void Func(int num) {
-            Random random = new Random();
-            num = random.Next(100);
+    class Balance {
+        public decimal Amount { get; set; }
+
+        private CURRENCIES currency;
+        public CURRENCIES Currency {
+            get {
+                return this.currency;
+            } 
+            set {
+                if(value >= CURRENCIES.azn && value <= CURRENCIES.euro) {
+                    this.currency = value;
+                }
+            }
         }
 
+        public CURRENCIES GetCurrency() {
+            return this.currency;
+        }
+        private void SetCurrency(CURRENCIES value) {
+            if (value >= CURRENCIES.azn && value <= CURRENCIES.euro) {
+                this.currency = value;
+            }
+        }
+    }
+
+
+    enum SUIT {
+        diamonds,
+        hearts,
+        clubs,
+        spades,
+    }
+
+    class GameCard {
+        public SUIT Suit { get; private set; }
+
+        private int value;
+        public int Value {
+            get { return this.value; }
+            private set { this.value = value; }
+        }
+
+        public GameCard(SUIT suit, int value) {
+            this.Suit = suit;
+            this.Value = value;
+        }
+
+        public void Show() {
+            Console.WriteLine($"{this.Value} {this.Suit}");
+        }
+    }
+
+
+    class Program {
         static void Main(string[] args) {
-            Person p = new Person("Bob", 45);
+            if(true) {
+                GameCard card = new GameCard(SUIT.hearts, 14);
+                Console.WriteLine(card.Suit);
+                Console.WriteLine(card.Value);
+            }
 
-            int num = p.Age;            // getter
-            int result = p.Age + num;   // getter
-            Func(p.Age);                // getter
-            Console.WriteLine(p.Age);   // getter
+            if(false) {
+                Balance balance = new Balance();
+                balance.Amount = 123;
+                balance.Currency = CURRENCIES.azn;
+            }
 
+            if(false) {
+                Person p = new Person("Bob", 45);
 
-            p.Age = 123;                // setter
+                //int num = p.Age;              // getter
+                //int result = p.Age + num;     // getter
+                //Func(p.Age);                  // getter
+                //Console.WriteLine(p.Age);     // getter
 
+                //p.Age = 777;                    // setter
+                //Console.WriteLine(p.Age);
 
-
-
-
-
-
+                p.Name = "boB";
+                Console.WriteLine(p.Name);
+            }
 
 
 
@@ -116,6 +177,11 @@ namespace PropertiesApp {
                 Console.WriteLine(card.GetPincode());
                 Console.WriteLine(card.GetPincode());
             }
+        }
+
+        static void Func(int num) {
+            Random random = new Random();
+            num = random.Next(100);
         }
     }
 }
