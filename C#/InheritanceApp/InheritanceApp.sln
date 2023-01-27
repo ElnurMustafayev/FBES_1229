@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OopInCsharpApp", "OopInCsharpApp.csproj", "{03B64746-5962-4D8B-9099-7785B8169C8E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InheritanceApp", "InheritanceApp.csproj", "{429A8454-9E75-45D9-AFF6-5CBDD8C928FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{03B64746-5962-4D8B-9099-7785B8169C8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{03B64746-5962-4D8B-9099-7785B8169C8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{03B64746-5962-4D8B-9099-7785B8169C8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{03B64746-5962-4D8B-9099-7785B8169C8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{429A8454-9E75-45D9-AFF6-5CBDD8C928FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{429A8454-9E75-45D9-AFF6-5CBDD8C928FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{429A8454-9E75-45D9-AFF6-5CBDD8C928FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{429A8454-9E75-45D9-AFF6-5CBDD8C928FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3612B8FC-E922-4171-BC3F-E42BE9F574E9}
+		SolutionGuid = {11385075-6101-45B2-8F58-D732D9AE5A8C}
 	EndGlobalSection
 EndGlobal
