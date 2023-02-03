@@ -7,7 +7,7 @@ class Parrot : IFlyable, IWalkable {
 
     public double Speed {
         get {
-            return new Random().NextDouble(); ICollection
+            return new Random().NextDouble();
         }
     }
 

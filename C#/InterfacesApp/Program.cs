@@ -10,8 +10,15 @@ class Program {
     //}
 
     static void Main() {
+
         if(true) {
-            List
+            Calc<long, int> calc1 = new();
+            var calc2 = new Calc<double, int>();
+
+            ICalc<int, double> calc = calc2;
+        }
+
+        if(false) {
             Parrot parrot = new Parrot("Cucumber");
             Cat cat = new Cat("Rijik");
             Shark shark = new Shark();
