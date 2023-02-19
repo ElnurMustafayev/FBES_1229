@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic.ApplicationServices;
+using System.Text.Json;
 
 namespace UsersStorageApp {
     public partial class AddUserForm : Form {
@@ -41,10 +42,10 @@ namespace UsersStorageApp {
             };
 
             users.Add(newUser);
-
             source.ResetBindings(false);
 
-            //Console.WriteLine($"New User added! '{newUser}'");
+            var json = JsonSerializer.Serialize(users);
+            File.WriteAllText(User.filePath, json);
 
             this.CloseForm(sender, e);
         }

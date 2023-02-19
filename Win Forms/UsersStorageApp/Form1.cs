@@ -1,3 +1,5 @@
+using System.Text.Json;
+
 namespace UsersStorageApp {
     public partial class Form1 : Form {
         public List<User> Users { get; set; } = new List<User>();
@@ -5,6 +7,10 @@ namespace UsersStorageApp {
 
         public Form1() {
             InitializeComponent();
+
+            // load
+            var json = File.ReadAllText(User.filePath);
+            this.Users = JsonSerializer.Deserialize<List<User>>(json);
 
             source.DataSource = this.Users;
 
