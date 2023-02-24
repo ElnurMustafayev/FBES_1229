@@ -1,0 +1,64 @@
+﻿<Window x:Class="StylesApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StylesApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" FontSize="20">
+
+    <Window.Resources>
+        <!--<ResourceDictionary Source="MyResources.xaml"/>-->
+
+        <Style TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Background" Value="LightYellow"/>
+                <Setter Property="Padding" Value="20"/>
+            </Style.Setters>
+
+            <Style.Triggers>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Padding" Value="18"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <WrapPanel>
+        <Image Source="https://i.pinimg.com/736x/65/32/52/6532521f31dda2af786c5b72c1e96fc7--british-shorthair-pie.jpg"/>
+
+        <Button Content="Click"/>
+        <Button Content="Click"/>
+        <Button Content="Click"/>
+        <Button Content="Click"/>
+        <Button Content="Click"/>
+        <Button Content="Click"/>
+        <Button Content="Click"/>
+    </WrapPanel>
+
+    <!--<DockPanel>
+        <Button DockPanel.Dock="Bottom" Content="Add new User" Click="Button_Click"/>
+        
+        <ListView ItemsSource="{Binding Users}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Width="500" Style="{StaticResource StackPanelStyle}">
+                        <TextBlock Style="{StaticResource UserTextInfoStyle}" Text="{Binding Surname}"/>
+                        <TextBlock Style="{StaticResource UserTextInfoStyle}" Text="{Binding Name}"/>
+                        <TextBlock Text="{Binding Age}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        --><!--<StackPanel Visibility="Hidden">
+            <TextBlock Text="{Binding Width}"/>
+            <TextBlock Text=" x "/>
+            <TextBlock Text="{Binding Height}"/>
+            <TextBlock Text="{Binding Title}"/>
+            <TextBox x:Name="MyTextBox" TextChanged="MyTextBox_TextChanged"/>
+            <TextBlock Foreground="{Binding CounterColor}" Text="{Binding ElementName=MyTextBox, Path=Text.Length}"/>
+        </StackPanel>--><!--
+    </DockPanel>-->
+    
+</Window>
