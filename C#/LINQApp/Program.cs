@@ -102,6 +102,7 @@ class Program {
             },
         };
 
+
         //bool containsAdult = people.Any(person => person.Age >= 18);
         //bool allAreAdult = people.All(p => p.Age >= 18);
         //Console.WriteLine(allAreAdult);

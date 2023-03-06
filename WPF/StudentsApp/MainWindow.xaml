@@ -1,0 +1,35 @@
+﻿<Window x:Class="StudentsApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentsApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <DockPanel>
+        <TextBox x:Name="UserInputTextBox" DockPanel.Dock="Top" FontSize="28" TextChanged="TextBox_TextChanged"/>
+
+        <TextBlock Text="{Binding Users.Count}" TextAlignment="Center" DockPanel.Dock="Top"/>
+
+        <ListView ItemsSource="{Binding Users}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="0" Source="{Binding Avatar}"/>
+
+                        <StackPanel Grid.Column="2">
+                            <TextBlock Margin="5" FontSize="26" Text="{Binding Firstname}"/>
+                            <TextBlock Margin="5" FontSize="26" Text="{Binding Secondname}"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </DockPanel>
+</Window>
