@@ -7,7 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <DockPanel>
-        <TextBox x:Name="UserInputTextBox" DockPanel.Dock="Top" FontSize="28" TextChanged="TextBox_TextChanged"/>
+        <StackPanel DockPanel.Dock="Top">
+            <TextBox x:Name="UserInputTextBox" FontSize="28" TextChanged="TextBox_TextChanged"/>
+            <CheckBox x:Name="IsMarriedCheckBox" Content="Is Married" Checked="IsMarriedCheckBox_Checked" Unchecked="IsMarriedCheckBox_Unchecked"/>
+            <CheckBox x:Name="IsAdultCheckBox" Content="Is Adult" Checked="IsAdultCheckBox_Checked" Unchecked="IsAdultCheckBox_Unchecked"/>
+
+            <WrapPanel Margin="0 20 0 0">
+                <RadioButton Checked="GenderRadiobuttonChecked" x:Name="MaleRadioButton" Padding="5 0" GroupName="Gender" Content="Male"/>
+                <RadioButton Checked="GenderRadiobuttonChecked" x:Name="FemaleRadioButton" Padding="5 0" GroupName="Gender" Content="Female"/>
+                <RadioButton Checked="GenderRadiobuttonChecked" x:Name="NoneRadioButton" Padding="5 0" GroupName="Gender" Content="None"/>
+            </WrapPanel>
+            
+            
+        </StackPanel>
+        
 
         <TextBlock Text="{Binding Users.Count}" TextAlignment="Center" DockPanel.Dock="Top"/>
 
@@ -26,6 +39,8 @@
                         <StackPanel Grid.Column="2">
                             <TextBlock Margin="5" FontSize="26" Text="{Binding Firstname}"/>
                             <TextBlock Margin="5" FontSize="26" Text="{Binding Secondname}"/>
+
+                            <TextBlock Margin="5" FontSize="26" Text="{Binding BirthDate}"/>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
