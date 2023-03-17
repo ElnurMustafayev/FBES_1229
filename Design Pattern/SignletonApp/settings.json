@@ -1,0 +1,6 @@
+{
+    "WelcomeMessage": "Hello User!",
+    "UsernameMaxLength": 20,
+    "SurnameMaxLength": 20,
+    "AdultYear": 18
+}
