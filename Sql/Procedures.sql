@@ -79,3 +79,31 @@ exec GetMaxPersonIdAndName @maxId output, @maxName output
 
 print @maxId
 print @maxName
+
+
+
+
+
+
+
+
+
+
+
+
+alter proc TestProc (@num int)
+as
+begin
+	print @num
+
+	if @num > 0
+		return @num + 1
+	else
+		select * from Users
+end
+
+declare @result int
+
+exec @result = TestProc -12
+
+print @result

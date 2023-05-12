@@ -1,41 +1,67 @@
-USE ShopDb;
+alter function GetMaxAge(@test int)
+returns int
+as
+begin
+	declare @result int
 
-CREATE TABLE Users (
-    Id INT PRIMARY KEY IDENTITY (1, 1),
-    Firstname NVARCHAR (50) NOT NULL,
-    Surname NVARCHAR (50) NOT NULL,
-    Age INT NOT NULL,
-	Gender NVARCHAR(10),
-);
+	select @result = max(ap.Age)
+	from Users u
+	join AdultPeople ap on ap.Name = u.Name or ap.Age = u.Age
 
---select RAND()
---select FLOOR(RAND() * 100)
-
---select top 5 *
---from Users
---where Gender is null
-
--- 152949, 50
-select sum(u.Age) as 'Sum of age', avg(u.Age) as 'Average of age'
-from Users u
-
-select u.Firstname, len(u.Firstname) --,  max(len(u.Firstname))
-from Users u
-where u.Firstname like '%ann%'
-
-select *, len(u.Firstname)
-from Users u
-where len(u.Firstname) >= 10
+	return @result
+end
 
 
-select top 10 u.Firstname + '.com'
-from Users u
+create function GetTable()
+returns table
+as
+	return select * from Users
 
-select CHARINDEX('a', 'Salam', 4)
+select t.Age from dbo.GetTable() t
 
 
 
--- subquery
-select top 5 u.Firstname
-from Users u
-where u.Age = (select avg(Age) from Users)
+declare @result int
+select @result = dbo.GetMaxAge(123) from Users
+
+print @result
+
+
+
+
+--alter function TestFunc()
+--returns int
+--as
+--begin
+--	insert into Users([Name])
+--	values('test')
+
+--	return 123
+--end
+
+
+
+
+-- dbo.GetProductsCount (ExpDateFrom, ExpDateTo)
+
+create table Products (
+	[Id] int primary key identity,
+	[Name] nvarchar(50),
+	[ExpDate] datetime
+)
+
+create function GetProductsCount(@ExpDateFrom datetime, @ExpDateTo datetime)
+returns int
+as
+begin
+	if @ExpDateFrom >= @ExpDateTo
+		return 0
+
+	return	(select count(*)
+			from Products p
+			where p.ExpDate between @ExpDateFrom and @ExpDateTo)
+end
+
+select dbo.GetProductsCount('2020-01-01', '2030-01-01')
+select dbo.GetProductsCount('2025-01-01', '2030-01-01')
+select dbo.GetProductsCount('2035-01-01', '2030-01-01')
