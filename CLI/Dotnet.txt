@@ -1,0 +1,15 @@
+dotnet - команда
+
+dotnet new
+dotnet new --list
+dotnet new gitignore
+dotnet new sln --name SolutionFile
+dotnet new console -n TestConsole
+dotnet new console -f net6.0
+dotnet new wpf --name TestDesktop -f net6.0
+
+dotnet run
+dotnet build
+
+dotnet add package System.Data.SqlClient
+dotnet remove package System.Data.SqlClient
