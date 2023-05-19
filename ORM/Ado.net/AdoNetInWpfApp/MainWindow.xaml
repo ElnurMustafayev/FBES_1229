@@ -1,0 +1,24 @@
+﻿<Window x:Class="AdoNetInWpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AdoNetInWpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="600" FontSize="30">
+    <DockPanel Margin="20">
+        <TextBlock x:Name="ResultTextBlock" DockPanel.Dock="Bottom" Background="#FFE2E2E2"/>
+        
+        <StackPanel DockPanel.Dock="Top">
+            <DockPanel>
+                <Label Content="Name"/>
+                <TextBox x:Name="ProductNameTextBox" TextChanged="SearchProductsOnTextChanged"/>
+            </DockPanel>
+
+            <DockPanel Margin="0 10 0 0">
+                <Label Content="Price"/>
+                <TextBox x:Name="ProductPriceTextBox" TextChanged="SearchProductsOnTextChanged"/>
+            </DockPanel>
+        </StackPanel>
+    </DockPanel>
+</Window>
