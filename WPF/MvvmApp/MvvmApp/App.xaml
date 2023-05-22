@@ -1,0 +1,19 @@
+﻿<Application x:Class="MvvmApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:MvvmApp"
+             xmlns:v="clr-namespace:MvvmApp.Views"
+             xmlns:vm="clr-namespace:MvvmApp.ViewModels"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <DataTemplate DataType="{x:Type vm:HomeViewModel}">
+            <v:HomeWindow/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:SecondViewModel}">
+            <v:SecondWindow/>
+        </DataTemplate>
+
+    </Application.Resources>
+</Application>
