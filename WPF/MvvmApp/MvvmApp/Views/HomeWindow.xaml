@@ -6,8 +6,9 @@
              xmlns:local="clr-namespace:MvvmApp.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
-             Background="Red">
-    <Grid>
-            
-    </Grid>
+             Background="#FF7CA0E8">
+    <StackPanel>
+        <Button FontSize="34" Content="Second" Command="{Binding NavigationCommand}"/>
+        <TextBlock Text="{Binding Text}"/>
+    </StackPanel>
 </UserControl>

@@ -6,9 +6,8 @@
         xmlns:local="clr-namespace:MvvmApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel>
-        <ContentControl Height="200" Content="{Binding ActiveViewModel}"/>
-        <Button DockPanel.Dock="Bottom" Content="Click me!" Click="Button_Click"/>
-        <TextBlock Text="{Binding Number}"/>
-    </StackPanel>
+    <DockPanel>
+        <Button DockPanel.Dock="Bottom" Content="Click me!"/>
+        <ContentControl Content="{Binding ActiveViewModel}"/>
+    </DockPanel>
 </Window>
