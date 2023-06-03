@@ -6,6 +6,9 @@ using System.Windows;
 using SimpleInjector;
 using BlogApp.Messager.Services.Base;
 using BlogApp.Messager.Services;
+using BlogApp.Repositories;
+using BlogApp.Repositories.Base;
+using BlogApp.Entities;
 
 public partial class App : Application {
     public static Container ServiceContainer { get; set; } = new Container();
@@ -20,9 +23,11 @@ public partial class App : Application {
 
     private void ConfigureContainer() {
         ServiceContainer.RegisterSingleton<IMessenger, Messenger>();
+        ServiceContainer.RegisterSingleton<IUsersRepository<User>, UsersSqlRepository>();
 
         ServiceContainer.RegisterSingleton<MainViewModel>();
         ServiceContainer.RegisterSingleton<LoginViewModel>();
+        ServiceContainer.RegisterSingleton<BlogsViewModel>();
 
         ServiceContainer.Verify();
     }

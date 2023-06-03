@@ -11,5 +11,9 @@
             <v:LoginWindow/>
         </DataTemplate>
 
+        <DataTemplate DataType="{x:Type vm:BlogsViewModel}">
+            <v:BlogsWindow/>
+        </DataTemplate>
+
     </Application.Resources>
 </Application>
