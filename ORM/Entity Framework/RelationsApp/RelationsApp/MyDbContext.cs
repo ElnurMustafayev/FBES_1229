@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using RelationsApp.Entities.ManyToMany;
 using RelationsApp.Entities.OneToMany;
 using RelationsApp.Entities.OneToOne;
 
@@ -13,6 +14,10 @@ public class MyDbContext : DbContext {
     // 1 - to - M
     public DbSet<Post> Posts { get; set; }
     public DbSet<Comment> Comments { get; set; }
+
+    // M - to - M
+    public DbSet<Chat> Chats { get; set; }
+    public DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
