@@ -24,6 +24,7 @@ public partial class App : Application {
     private void ConfigureContainer() {
         ServiceContainer.RegisterSingleton<IMessenger, Messenger>();
         ServiceContainer.RegisterSingleton<IUsersRepository<User>, UsersSqlRepository>();
+        ServiceContainer.RegisterSingleton<IBlogsRepository<Blog>, BlogsEfRepository>();
 
         ServiceContainer.RegisterSingleton<MainViewModel>();
         ServiceContainer.RegisterSingleton<LoginViewModel>();

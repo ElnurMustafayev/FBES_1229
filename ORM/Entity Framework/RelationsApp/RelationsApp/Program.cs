@@ -7,6 +7,56 @@ using RelationsApp.Entities.ManyToMany;
 MyDbContext context = new MyDbContext();
 
 
+//var query = from pt in context.ProductTags
+//            join p in context.Products on pt.ProductId equals p.Id
+//            join t in context.Tags on pt.TagId equals t.Id
+//            select new { Product = p.Name, Tag = t.Name };
+
+
+//var query = from pt in context.ProductTags
+//            group pt by pt.TagId into ptg
+//            select new { ptg.Key, Count = ptg.Count() };
+
+
+//foreach (var item in query) {
+//    Console.WriteLine(item);
+//}
+
+
+
+
+
+
+//foreach (var pt in context.ProductTags) {
+//    Console.WriteLine($"{pt.ProductId} - {pt.TagId}");
+//} 
+
+
+
+
+
+//var phoneTag = new Tag("Tv");
+
+
+//context.ProductTags.Add(
+//    new ProductTag {
+//        Product = new Product("Apple TV"),
+//        Tag = phoneTag,
+//    });
+
+//context.SaveChanges();
+
+
+
+
+
+
+
+
+
+
+
+
 //int[] nums = { 1, 2, 3, 4 };
 
 //var result = from num in nums
@@ -17,16 +67,16 @@ MyDbContext context = new MyDbContext();
 
 
 
-var query = from country in context.Countries
-            join city in context.Cities on country.CityId equals city.Id
-            //where country.Name.Contains("jan")
-            select new {Country = country.Name, City = city.Name};
+//var query = from country in context.Countries
+//            join city in context.Cities on country.CityId equals city.Id
+//            //where country.Name.Contains("jan")
+//            select new {Country = country.Name, City = city.Name};
 
-var result = query.ToList();
+//var result = query.ToList();
 
-foreach (var item in result) {
-    Console.WriteLine(item);
-}
+//foreach (var item in result) {
+//    Console.WriteLine(item);
+//}
 
 
 

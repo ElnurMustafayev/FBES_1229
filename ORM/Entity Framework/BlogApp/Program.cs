@@ -3,6 +3,35 @@ using BlogApp.Entities;
 
 BlogAppDbContext context = new BlogAppDbContext();
 
+
+if(true) {
+    using var transaction = context.Database.BeginTransaction();
+
+    //try {
+    //    var user = new User("Test", "Testovi4", 30);
+
+    //    transaction.CreateSavepoint("First");
+    //    context.Users.Add(user);
+    //    context.SaveChanges();
+    //    transaction.CreateSavepoint("Second");
+
+    //    throw new Exception();
+    //}
+    //catch (Exception ex) {
+    //    //transaction.Rollback();
+    //    transaction.RollbackToSavepoint("Second");
+    //}
+    //transaction.Commit();
+
+    foreach (var user in context.Users) {
+        Console.WriteLine(user);
+    }
+}
+
+
+
+
+
 if (false) {
     var result = context.Users.Where(user => user.Age > 20)
         .Select(user => user.Name)

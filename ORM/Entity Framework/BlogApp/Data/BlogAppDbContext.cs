@@ -8,12 +8,18 @@ namespace BlogApp.Data
     {
         private const string connectionString = $"Server=localhost;Database=BlogAppDb;User Id=admin;Password=admin;TrustServerCertificate=True;";
         public DbSet<User> Users { get; set; }
-        
+
+        private static FileStream fileStream = new FileStream("logs.txt", mode: FileMode.OpenOrCreate, access: FileAccess.Write);
+        private static StreamWriter writer = new StreamWriter(fileStream);
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
 
             optionsBuilder.UseSqlServer(connectionString);
+
+            //writer.AutoFlush = true;
+            //optionsBuilder.LogTo(writer.WriteLine);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

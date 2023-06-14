@@ -19,6 +19,12 @@ public class MyDbContext : DbContext {
     public DbSet<Chat> Chats { get; set; }
     public DbSet<User> Users { get; set; }
 
+    // M - to - M (With relational Table)
+    public DbSet<Product> Products { get; set; }
+    public DbSet<Tag> Tags { get; set; }
+    public DbSet<ProductTag> ProductTags { get; set; }
+
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         string connectionString = $"Server=localhost;Database=MyAppDb;User Id=admin;Password=admin;TrustServerCertificate=True;";
@@ -28,6 +34,9 @@ public class MyDbContext : DbContext {
 
     protected override void OnModelCreating(ModelBuilder modelBuilder) {
         base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<ProductTag>()
+            .HasKey(pt => new { pt.TagId, pt.ProductId });
 
         //modelBuilder.Entity<Post>()
         //    .HasMany<Comment>()
