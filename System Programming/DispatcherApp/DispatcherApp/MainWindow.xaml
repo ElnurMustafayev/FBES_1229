@@ -7,8 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
-
-        <ProgressBar x:Name="MyProgressBar" Height="20"/>
         
+        <ProgressBar x:Name="MyProgressBar" Height="20"/>
+
+
+        <TextBox x:Name="MyTextBox"/>
+        <Button Click="Button_Click" Content="Click me!"/>
+
+
     </StackPanel>
 </Window>
