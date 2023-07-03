@@ -3,9 +3,101 @@
 using System.Data.SqlClient;
 using Dapper;
 
+public class PhoneEntity {
+    public int Id { get; set; }
+    public string? Phone { get; set; }
+}
+
 public class Program {
+    private const string connectionString = $"Server=localhost;Database=TestDb;User Id=admin;Password=admin;TrustServerCertificate=True;";
+    private static SqlConnection? connection;
+
+    private static Thread AddPhones(params string[] phones) {
+        // ["123", "234", "345"] => ["('123')", "('234')", "('345')"]
+        var changedPhones = phones.Select(phone => $"('{phone}')");
+        // ["('123')", "('234')", "('345')"] => "('123'),('234'),('345')"
+        var inserts = string.Join(',', changedPhones);
+
+        var thread = new Thread(() => {
+            connection?.Execute(sql: $"insert into Phones(Phone) values {inserts}");
+        });
+
+        thread.Start();
+
+        return thread;
+    }
+
+    private static Thread PrintPhones(Action<PhoneEntity>? printLogic = null) {
+        printLogic ??= (phoneObj => Console.WriteLine(phoneObj.Phone));
+
+        var thread = new Thread(() => {
+            connection.Query<PhoneEntity>("select * from Phones")
+                .ToList()
+                .ForEach(printLogic);
+        });
+        thread.Start();
+
+        return thread;
+    }
+
     public static void Main() {
-        if(true) {
+        if(false) {
+            ThreadPool.QueueUserWorkItem((obj) => {
+                Thread.Sleep(3000);
+                Console.WriteLine(obj);
+                Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
+            }, "Hello World!");
+
+            ThreadPool.QueueUserWorkItem((obj) => {
+                Thread.Sleep(3000);
+                Console.WriteLine(obj);
+                Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
+            }, "Hello World!");
+
+            Console.ReadKey();
+        }
+
+        if(false) {
+            // CREATE TABLE phones[id:number, phone:nvarchar]
+            // create function:
+
+            // AddPhones("+994515151515","+994555555555","+994511111111");
+            // PrintPhones();
+            connection = new SqlConnection(connectionString);
+
+            AddPhones("+a").Join();
+            AddPhones("+b").Join();
+            AddPhones("+c").Join();
+            PrintPhones();
+
+            Console.ReadKey();
+        }
+
+
+        if (false) {
+            var thread1 = new Thread(() => {
+                Thread.Sleep(3000);
+            });
+            thread1.Start();
+
+            int num = 0;
+            var thread = new Thread(() => {
+                Thread.Sleep(3000);
+                thread1.Join();
+                num = 777;
+            });
+
+            Console.WriteLine(num);
+            thread.Start();
+
+            //while (thread.IsAlive == true) { }
+
+            thread.Join();
+            Console.WriteLine(num);
+        }
+
+
+        if(false) {
             var thread = new Thread(() => { });
             thread.Start();
             thread.Interrupt();
