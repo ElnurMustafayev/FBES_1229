@@ -42,22 +42,6 @@ public class Program {
 
     public static void Main() {
         if(false) {
-            ThreadPool.QueueUserWorkItem((obj) => {
-                Thread.Sleep(3000);
-                Console.WriteLine(obj);
-                Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
-            }, "Hello World!");
-
-            ThreadPool.QueueUserWorkItem((obj) => {
-                Thread.Sleep(3000);
-                Console.WriteLine(obj);
-                Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
-            }, "Hello World!");
-
-            Console.ReadKey();
-        }
-
-        if(false) {
             // CREATE TABLE phones[id:number, phone:nvarchar]
             // create function:
 
