@@ -2,13 +2,14 @@ GIT:
 git clone "<path to repo>"	- клонирует репозиторий
 git status			- показывает статус локального репозитория
 git add .			- подготавливает изменения к коммиту
-git log				- просмотр всех коммитов текущей ветки
 git branch			- показывает текущую ветку
 git branch -a			- возвращает список всех веток
 git branch -c <branch name>	- создает локально новую ветку с указанным названием
 git checkout <commit id>	- локально перейти на конкретный коммит
 git checkout <branch name>	- локально перейти на конкретную ветку (последний коммит)
 git merge <source branch name>	- слияет source ветку в destination(ветка, на которой сейчас находимся) ветку
+git log				- просмотр всех коммитов текущей ветки
+git log --all --graph --decorate
 
 
 
