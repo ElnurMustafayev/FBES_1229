@@ -1,4 +1,4 @@
-dotnet - команда
+dotnet CLI
 
 dotnet new
 dotnet new --list
@@ -7,6 +7,13 @@ dotnet new sln --name SolutionFile
 dotnet new console -n TestConsole
 dotnet new console -f net6.0
 dotnet new wpf --name TestDesktop -f net6.0
+
+dotnet sln list
+dotnet sln add <project path>
+dotnet sln remove <project path>
+
+dotnet add reference <project path>
+dotnet remove reference <project path>
 
 dotnet run
 dotnet build
