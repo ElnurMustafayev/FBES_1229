@@ -1,0 +1,21 @@
+﻿<Window x:Class="ClientApp.Messenger"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClientApp"
+        mc:Ignorable="d"
+        Title="Messenger" Height="500" Width="500">
+    <DockPanel Margin="10">
+        <TextBlock x:Name="NicknameTextblock" Background="Black" Foreground="White" FontSize="24" DockPanel.Dock="Top" Text="{Binding Nickname}"/>
+
+        <DockPanel DockPanel.Dock="Bottom">
+            <Button Content="Send" DockPanel.Dock="Right" FontSize="20" Click="SendButtonClick"/>
+            <TextBox x:Name="MessageTextbox" FontSize="20"/>
+        </DockPanel>
+        
+        <ListView x:Name="MessagesListBox" DockPanel.Dock="Top">
+            
+        </ListView>
+    </DockPanel>
+</Window>
