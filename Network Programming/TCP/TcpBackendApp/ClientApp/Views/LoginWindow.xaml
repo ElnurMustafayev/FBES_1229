@@ -1,0 +1,18 @@
+﻿<Window x:Class="ClientApp.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClientApp.Views"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="280" Width="300">
+    <StackPanel>
+        <Label Content="Login: "/>
+        <TextBox x:Name="LoginTextbox"/>
+
+        <Label Content="Password: "/>
+        <TextBox x:Name="PasswordTextbox"/>
+
+        <Button Content="Login" Click="Login_Click"/>
+    </StackPanel>
+</Window>
