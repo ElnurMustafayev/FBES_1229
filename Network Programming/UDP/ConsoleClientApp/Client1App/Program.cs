@@ -3,7 +3,7 @@ using System.Net.Sockets;
 using System.Text;
 
 var udpClient = new UdpClient(8080);
-const int updPacketSizeLimit = 65000;
+//const int updPacketSizeLimit = 65000;
 
 #region Allow UDP receive after send
 
@@ -26,6 +26,8 @@ ThreadPool.QueueUserWorkItem(async (state) => {
     }
 });
 
+const int packetSize = 100;
+
 //send
 while (true) {
     Console.Write("Put Image path: ");
@@ -36,8 +38,8 @@ while (true) {
 
         for (int packetNumber = 0; true; packetNumber++) {
             byte[] packetToSend = imageInBytes
-                .Skip(packetNumber * updPacketSizeLimit)
-                .Take(updPacketSizeLimit)
+                .Skip(packetNumber * packetSize)
+                .Take(packetSize)
                 .ToArray();
 
             if(packetToSend.Length == 0) {
@@ -53,6 +55,9 @@ while (true) {
 
                 break;
             }
+
+            if (packetNumber != 0 && packetNumber % 100 == 0)
+                continue;
 
             int size = await udpClient.SendAsync(
                 datagram: packetToSend,
