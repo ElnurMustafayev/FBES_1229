@@ -1,8 +1,10 @@
 ﻿using ClientApp.Models;
 using System.Net;
+using System.Net.Http.Json;
 using System.Text.Json;
 
-if (true) {
+
+if (false) {
     HttpWebRequest request = WebRequest.CreateHttp("https://pogoapi.net/api/v1/pokemon_stats.json");
 
     HttpWebResponse response = (HttpWebResponse)await request.GetResponseAsync();
