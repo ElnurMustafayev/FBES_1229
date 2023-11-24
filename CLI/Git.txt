@@ -16,6 +16,7 @@ git log --all --graph --decorate
 git pull <remote repo name (origin)> <branch name>	- обновление конкретной ветки
 git commit -m "<title>" -m "<description>"		- коммит изменений с заголовком и описанием
 git push <remote repo name (origin)> <local branch>	- опубликование локальных изменений
+git rebase -i HEAD~<n> - соединяет n коммитов под HEAD-ом
 
 
 
