@@ -1,0 +1,13 @@
+﻿@{
+    string[] names = {
+        "Bob",
+        "John",
+        "Ann",
+    };
+
+    T GetRandom<T>(IEnumerable<T> items) => items.ElementAt(Random.Shared.Next(0, items.Count()));
+}
+
+<div class="text-center">
+    <h1 class="display-4">Random name: @GetRandom(names)</h1>
+</div>

@@ -16,6 +16,7 @@ dotnet add reference <project path>
 dotnet remove reference <project path>
 
 dotnet run
+dotnet run --launch-profile <profilename>
 dotnet build
 
 dotnet add package System.Data.SqlClient

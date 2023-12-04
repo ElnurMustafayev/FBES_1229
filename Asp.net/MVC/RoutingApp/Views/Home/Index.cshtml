@@ -1,0 +1,20 @@
+﻿@{
+    /*
+    Routing:
+        /
+        /Home/
+        /Home/Index
+    */
+    Console.WriteLine("Index Start");
+
+    int MyFunction(int num) {
+        return num * num;
+    }
+
+    int num = 777;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome @num</h1>
+    <h2 class="display-4">@MyFunction(num)</h2>
+</div>
