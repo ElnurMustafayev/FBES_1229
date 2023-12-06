@@ -1,0 +1,89 @@
+﻿@using System.Text.Json;
+@model IEnumerable<User>
+
+@{
+    @* foreach(var name in ViewBag.Names) {
+        Console.WriteLine(name);
+    } *@
+
+    //this.Layout = "_HomeLayout";
+
+    //Console.WriteLine("Index Start");
+
+    //int MyFunction(int num) {
+    //    return num * num;
+    //}
+
+    //int num = 777;
+
+    //var names = base.ViewData["names"] as IEnumerable<string>;
+}
+
+<div>
+    <h2>Names: </h2>
+
+    @* @foreach(var user in base.ViewBag.Users) { *@
+    @foreach(var user in base.Model) {
+    <div class="user-info" style="margin: 10px; border: 1px solid black;">
+        <label style="display: block;">
+            name: 
+            <input:text>@user.Name</input:text>
+        </label>
+
+        <label style="display: block;">
+            surname: 
+            <input:text>@user.Surname</input:text>
+        </label>
+    </div>
+    }
+
+
+
+    @* ViewData *@
+    @* @if(base.ViewData["isDevelopment"] == true) {
+        <h1>Development</h1>
+    }
+    @if(names is not null) {
+        foreach(var item in names) {
+            <span>@item</span>
+        }
+    } *@
+
+
+
+
+
+
+
+    @* ViewBag *@
+    @* @if(ViewBag.IsDevelopment) {
+        <h1>Development</h1>
+    }
+
+    @if(ViewBag.Names is not null) {
+        foreach(var item in ViewBag.Names) {
+            <span>@item</span>
+        }
+    } *@
+
+
+
+
+
+
+    @* @if(isDevelopment) {
+        <h1>Development</h1>
+    }
+    else {
+        if(names is not null && names.Any()) {
+            foreach(var item in names) {
+                <span>@item</span>
+            }
+        }
+    } *@
+
+    @* @Func() *@
+
+    @* <h1 class="display-4">Welcome @num</h1>
+    <h2 class="display-4">@MyFunction(num)</h2> *@
+</div>
