@@ -3,10 +3,40 @@
 using System.Diagnostics;
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
+using RoutingApp.Dtos;
 using RoutingApp.Models;
 
 public class HomeController : Controller
 {
+    public HomeController()
+    {
+        System.Console.WriteLine("HomeController created!");
+    }
+
+    public IActionResult MyMethod(int? id, string? name = "unknown") {
+        return Ok(new {
+            id, name
+        });
+    }
+
+    [HttpGet]
+    public IActionResult Login() {
+        return base.View();
+    }
+    
+    [HttpPost]
+    public IActionResult Login(LoginDto loginDto) {
+        System.Console.WriteLine($"{loginDto.Login} {loginDto.Password}");
+
+        //return View("Index");
+        return RedirectToAction("Index");
+        //return this.Index();
+
+        //return Ok($"POST Login OK by '{loginDto.Login}'!");
+    }
+
+
+
     public IActionResult Index()
     {
         // var namesJson = System.IO.File.ReadAllText("Assets/names.json");

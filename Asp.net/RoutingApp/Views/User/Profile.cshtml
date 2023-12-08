@@ -1,0 +1,28 @@
+@model UserProfile;
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+
+<h1>@ViewData["Title"]</h1>
+
+<header>
+    <img src="@Model.AvatarUrl"/>
+    <div class="fullname">
+        <p>@Model.Firstname</p>
+        <p>@Model.Lastname</p>
+    </div>
+</header>
+
+<div class="info">
+    <p><b>Position:</b> @Model.Position</p>
+    <p>
+        <b>Skills:</b> 
+        @foreach(var skill in Model.Skills) {
+            <span class="skill">@skill</span>
+        }
+        </p>
+
+    <p>@Model.Description</p>
+</div>

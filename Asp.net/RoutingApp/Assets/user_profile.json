@@ -1,0 +1,28 @@
+[
+    {
+        "id": 1,
+        "name": "Bob",
+        "surname": "Marley",
+        "photo": "https://i.pinimg.com/474x/6e/b3/20/6eb320cf8f61677a5a984db0c3c18035.jpg",
+        "position": "Front-end developer",
+        "skills": [
+            "react",
+            "jquery",
+            "scss"
+        ],
+        "description": "Hi! I am super developer!"
+    },
+    {
+        "id": 2,
+        "name": "Ann",
+        "surname": "Marley",
+        "photo": "https://i.pinimg.com/474x/51/41/c3/5141c3ae269e4382846ac3067cbbf9a9.jpg",
+        "position": "Back-end developer",
+        "skills": [
+            "asp.net",
+            "Reflection",
+            "Sql"
+        ],
+        "description": "Hi! I am Bob's wife!"
+    }
+]

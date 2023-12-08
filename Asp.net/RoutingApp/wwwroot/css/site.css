@@ -1,3 +1,4 @@
+/* D E F A U L T S */
 html {
   font-size: 14px;
 }
@@ -7,8 +8,11 @@ html {
     font-size: 16px;
   }
 }
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
@@ -20,3 +24,20 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* C U S T O M */
+header {
+  display: flex;
+  margin-bottom: 20px;
+}
+header > .fullname {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.skill {
+  background: #c4c4c4;
+  padding: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+}/*# sourceMappingURL=site.css.map */
