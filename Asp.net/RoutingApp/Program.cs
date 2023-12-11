@@ -23,7 +23,7 @@ app.UseAuthorization();
 app.MapDefaultControllerRoute();
 // app.MapControllerRoute(
 //     name: "default",
-//     pattern: "{controller=Test}/{action=Get}");
+//     pattern: "{controller=Test}/{action=Get}/{id?}");
 
 app.Run();
 
