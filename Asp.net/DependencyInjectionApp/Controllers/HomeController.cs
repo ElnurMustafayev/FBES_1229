@@ -11,7 +11,7 @@ public class HomeController : Controller
 
     public HomeController(IUserRepository userRepository, UserServiceBase userService)
     {
-        System.Console.WriteLine(userRepository.GetHashCode());
+        System.Console.WriteLine("CONTROLLER: " + userRepository.GetHashCode());
         this.userRepository = userRepository;
         this.userService = userService;
     }

@@ -14,7 +14,7 @@ namespace DependencyInjectionApp.Services
 
         public UserService(IUserRepository userRepository)
         {
-            System.Console.WriteLine(userRepository.GetHashCode());
+            System.Console.WriteLine("SERVICE: " + userRepository.GetHashCode());
             this.userRepository = userRepository;
             System.Console.WriteLine("UserService");
         }
