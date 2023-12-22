@@ -1,8 +1,26 @@
-﻿@{
+﻿@model PaletteViewModel;
+@inject IConfiguration configuration;
+
+@{
     ViewData["Title"] = "Home Page";
+
+    string secret = configuration
+        .GetSection("MyOption")
+        .GetSection("Test")
+        .GetSection("secret")
+        .Get<string>();
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+    .cube {
+        width: 100px; 
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<div class="cube" style="background-color: @Model.Palette.background; color: @Model.Palette.foreground;">
+    @configuration["MyOption:Test:secret"]
 </div>

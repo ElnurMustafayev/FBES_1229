@@ -1,25 +1,29 @@
 using ConfigurationApp.Models;
 using ConfigurationApp.Repositories;
 using ConfigurationApp.Repositories.Base;
+using Microsoft.Extensions.Configuration.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
-var frontColor = builder.Configuration
-    .GetSection("Palette")
-    .GetSection("front")
-    .Get<string>();
+if(false) {
+    var frontColor = builder.Configuration
+        .GetSection("Palette")
+        .GetSection("foreground")
+        .Get<string>();
 
-System.Console.WriteLine(frontColor);   // red
+    System.Console.WriteLine(frontColor);   // red
 
 
 
-var palette = builder.Configuration
-    .GetSection("Palette")
-    .Get<Palette>();
+    var palette = builder.Configuration
+        .GetSection("Palette")
+        .Get<Palette>();
 
-System.Console.WriteLine(palette?.background); // white
+    System.Console.WriteLine(palette?.background); // white
+}
+
 
 // builder.Services.AddSingleton<Palette>(palette);
 // builder.Services.AddScoped<Palette>((provider) => {
@@ -33,6 +37,56 @@ var paletteSection = builder.Configuration
     .GetSection("Palette");
 
 builder.Services.Configure<Palette>(paletteSection);
+
+
+// const string mySettingFileName = "test.json";
+// builder.Configuration.AddJsonFile(mySettingFileName);
+// var login = builder.Configuration
+//     .GetSection("MyTestOptions")
+//     .GetSection("Login")
+//     .Get<string>();
+
+// System.Console.WriteLine($"Login: {login}");
+
+// // get all sources
+// foreach (var item in builder.Configuration.Sources)
+// {
+//     if(item is JsonConfigurationSource jsonConfigurationSource) {
+//         System.Console.WriteLine(jsonConfigurationSource.Path);
+//     }
+// }
+
+/*
+// remove all json sources except {mySettingFileName}
+var jsonSourcesToDelete = builder.Configuration.Sources
+    .Where(source => {
+        if(source is JsonConfigurationSource jsonConfigurationSource) {
+            if(jsonConfigurationSource.Path == null) 
+                return true;
+
+            if(jsonConfigurationSource.Path.EndsWith(mySettingFileName))
+                return false;
+            return true;
+        }
+        return false;
+    });
+
+System.Console.WriteLine(jsonSourcesToDelete.Count());
+
+for (int i = 0; i < jsonSourcesToDelete.Count(); i++)
+{
+    System.Console.WriteLine($"ITERATOIN {i}");
+    builder.Configuration.Sources.Remove(jsonSourcesToDelete.ElementAt(i));
+}
+
+foreach (var item in builder.Configuration.Sources) {
+    if(item is JsonConfigurationSource jsonConfigurationSource) {
+        System.Console.WriteLine(jsonConfigurationSource.Path);
+    }
+}
+*/
+
+
 
 // builder.Services.Configure<Palette>(paletteSection, 
 //     configureBinder: (options) => {
