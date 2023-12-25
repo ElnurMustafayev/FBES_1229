@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Login";
+
+    var login = "default";
+    var password = "";
+    var id = Random.Shared.Next(100);
+}
+
+
+
+<a asp-controller="Home" asp-action="Test" asp-route-num="123" asp-route-id=@id>Call my test endpoint</a>
+@* <a href="/Home/Test?num=123">Call my test endpoint</a> *@
+
+<p>Go to <a asp-controller="Home" asp-action="Index">home</a></p>
+@* <p>Go to <a href="/Home/Index">home</a></p> *@
+
+<form asp-controller="Auth" asp-action="Login" method="post">
+    <label asp-for="@login">Login: </label>
+    <input type="text" asp-for="@login">
+    <br>
+    <label asp-for="@password">Password: </label>
+    <input type="password" asp-for="@password">
+    <br>
+    <input type="submit" value="Login">
+</form>
+
+@* 
+<form action="http://localhost:5102/Auth/Login" method="post">
+    <label for="login">Login: </label>
+    <input type="text" name="login" id="login">
+    <br>
+    <label for="password">Password: </label>
+    <input type="password" name="password" id="password">
+    <br>
+    <input type="submit" value="Login">
+</form> 
+*@
