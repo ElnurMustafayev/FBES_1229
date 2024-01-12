@@ -1,6 +1,12 @@
+using AuthenticationWithCookieApp.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDataProtection();
+
+builder.Services.AddSingleton<IdentityService>();
 
 var app = builder.Build();
 
