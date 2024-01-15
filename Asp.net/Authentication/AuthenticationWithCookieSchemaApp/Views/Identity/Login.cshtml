@@ -1,0 +1,21 @@
+@{
+    ViewData["Title"] = "Login";
+
+    string login = string.Empty;
+    string password = string.Empty;
+    string returnUrl = ViewData["returnUrl"] as string;
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Login" method="post" class="w-25 p-3">
+    <input type="hidden" asp-for="@returnUrl">
+
+    <label asp-for="@login" class="form-label">Login</label>
+    <input asp-for="@login" type="text" class="form-control">
+
+    <label asp-for="@password" class="form-label">Password</label>
+    <input asp-for="@password" type="password" class="form-control">
+
+    <button type="submit" class="btn btn-primary m-3 ms-0">Login</button>
+</form>
