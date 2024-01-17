@@ -1,0 +1,9 @@
+﻿@using System.Security.Claims
+
+@{
+    Layout = "_Layout";
+
+    var foundClaim = this.Context.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name);
+
+    ViewData["Username"] = foundClaim?.Value;
+}
