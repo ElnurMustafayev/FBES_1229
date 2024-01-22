@@ -1,0 +1,24 @@
+@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<p><a asp-controller="Product" asp-action="create">Create</a> new product</p>
+
+<h2>All Products</h2>
+<div>
+    @foreach(var product in Model) {
+        <div class="card mb-4">
+            <div class="card-header">
+                @product.Name
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                <p>@product.Price $</p>
+                </blockquote>
+            </div>
+        </div>
+    }
+</div>
+
