@@ -1,0 +1,25 @@
+﻿@model User
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form asp-action="CreateUser" asp-controller="Home" method="post">
+    <div class="mb-3">
+    <label class="form-label" asp-for="Name">Name</label>
+    <input class="form-control" asp-for="Name">
+    <span class="text-danger" asp-validation-for="Name"></span>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" asp-for="Age">Age</label>
+    <input class="form-control" asp-for="Age">
+    <span class="text-danger" asp-validation-for="Age"></span>
+  </div>
+
+  <button type="submit" class="btn btn-success">Create</button>
+</form>
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
