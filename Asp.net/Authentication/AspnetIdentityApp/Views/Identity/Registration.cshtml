@@ -1,0 +1,30 @@
+@model RegistrationDto
+
+@{
+    ViewData["Title"] = "Registration";
+}
+
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Registration" method="post" class="w-50 p-3">
+    <div asp-validation-summary="All"></div>
+    
+    <label asp-for="Email" class="form-label">Email</label>
+    <input class="form-control" asp-for="Email" type="email" class="form-control">
+    <span asp-validation-for="Email"></span>
+
+    <label asp-for="Username" class="form-label">Username</label>
+    <input class="form-control" asp-for="Username" type="text" class="form-control">
+    <span asp-validation-for="Username"></span>
+
+    <label asp-for="Password" class="form-label">Password</label>
+    <input class="form-control" asp-for="Password" type="password" class="form-control">
+    <span asp-validation-for="Password"></span>
+
+    <button class="d-block btn btn-success" type="submit">Register</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial">
+}

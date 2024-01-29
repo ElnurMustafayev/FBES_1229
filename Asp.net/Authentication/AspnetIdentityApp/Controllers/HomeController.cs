@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace AspnetIdentityApp.Controllers;
 
+// [Authorize(Roles = "Test")]
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
@@ -18,9 +19,15 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Privacy()
-    {
-        return View();
+    // Admin or Moderator
+    [Authorize(Roles = "Admin, Moderator")]
+
+
+    // Admin and Moderator
+    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Moderator")]
+    public IActionResult Secret() {
+        return base.Ok();
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
