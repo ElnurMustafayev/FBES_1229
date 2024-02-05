@@ -1,0 +1,4 @@
+src/App.Core/App.Core.csproj (classlib)				-> App.Core.Models
+src/App.Infrastructure/App.Infrastructure.csproj (classlib)	-> App.Infrastructure.Services
+src/App.Presentation/App.Presentation.csproj (mvc)		-> App.Presentation.Controllers
+App.sln (sln)
