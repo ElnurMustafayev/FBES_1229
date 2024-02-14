@@ -2,7 +2,7 @@ using ConsoleApp.Services;
 
 namespace UnitTestApp;
 
-public class StringMethodsTest
+public class StringMethodsTests
 {
     [Theory]
     [InlineData("Bob", 3)]

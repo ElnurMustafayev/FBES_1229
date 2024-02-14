@@ -2,7 +2,7 @@ namespace UnitTestApp;
 
 using ConsoleApp.Services;
 
-public class MyCalculatorTest
+public class MyCalculatorTests
 {
     [Fact]
     public void Sum()
