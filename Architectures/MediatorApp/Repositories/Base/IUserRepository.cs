@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using MediatorApp.Models;
 
 namespace MediatorApp.Repositories.Base
@@ -10,5 +6,6 @@ namespace MediatorApp.Repositories.Base
     {
         void CreateUser(User user);
         User GetUser(int id);
+        IEnumerable<User> GetAll();
     }
 }

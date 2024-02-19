@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace MediatorApp.Handlers.Users
+namespace MediatorApp.Handlers.Users.GetUser
 {
     public class GetUserCommand : IRequest<GetUserViewModel>
     {

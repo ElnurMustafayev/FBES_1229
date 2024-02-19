@@ -30,3 +30,9 @@ var app = builder.Build();
 app.MapControllers();
 
 app.Run();
+
+
+
+
+// Написать Handler для следующего метода репозитория
+// IUserRepository::GetAll() -> IEnumerable<User>

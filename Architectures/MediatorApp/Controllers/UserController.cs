@@ -1,6 +1,8 @@
 namespace MediatorApp.Controllers;
 
 using MediatorApp.Handlers.Users;
+using MediatorApp.Handlers.Users.GetAll;
+using MediatorApp.Handlers.Users.GetUser;
 using MediatorApp.Services.Base;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -29,5 +31,12 @@ public class UserController : ControllerBase
 
         // var user = this.userService.Get(id);
         // return base.Ok(user);
+    }
+
+    public async Task<IActionResult> GetAll()
+    {
+        var users = await this.sender.Send(new GetAllCommand());
+
+        return base.Ok(users);
     }
 }

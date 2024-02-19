@@ -11,6 +11,15 @@ namespace MediatorApp.Repositories
             System.Console.WriteLine("Created");
         }
 
+        public IEnumerable<User> GetAll()
+        {
+            return new List<User> {
+                User.Create(),
+                User.Create(),
+                User.Create(),
+            };
+        }
+
         public User GetUser(int id)
         {
             return new User() {

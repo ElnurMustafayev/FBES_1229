@@ -1,4 +1,4 @@
-namespace MediatorApp.Handlers.Users
+namespace MediatorApp.Handlers.Users.GetUser
 {
     public class GetUserViewModel
     {

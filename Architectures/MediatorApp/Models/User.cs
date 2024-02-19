@@ -10,5 +10,11 @@ namespace MediatorApp.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public int Age { get; set; }
+
+        public static User Create() => new() {
+            Id = 100,
+            Name = "Fake",
+            Age = 30,
+        };
     }
 }

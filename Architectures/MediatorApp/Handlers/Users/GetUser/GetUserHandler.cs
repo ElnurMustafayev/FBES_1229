@@ -1,8 +1,7 @@
-using MediatorApp.Models;
 using MediatorApp.Repositories.Base;
 using MediatR;
 
-namespace MediatorApp.Handlers.Users
+namespace MediatorApp.Handlers.Users.GetUser
 {
     public class GetUserHandler : IRequestHandler<GetUserCommand, GetUserViewModel>
     {
