@@ -1,0 +1,9 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form enctype = "multipart/form-data" asp-action="UploadAvatar" asp-controller="Home" method="post">
+    <input type="file" name="file" id="file">
+
+    <button>Ok</button>
+</form>
