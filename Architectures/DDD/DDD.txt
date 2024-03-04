@@ -1,0 +1,23 @@
+Books
+	Models
+		Book.cs
+	Repositories
+		BookPostgreSqlRepository.cs
+		BookMongoDbRepository.cs
+	Services
+		BookService.cs
+	Controllers
+		BookController.cs
+
+
+
+Users
+	Models
+		User.cs
+	Repositories
+		UserRepository.cs
+	Services
+		UserService.cs
+		UserFileService.cs
+	Controllers
+		UserController.cs
