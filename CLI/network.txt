@@ -1,0 +1,5 @@
+nslookup akshambazari.postgres.database.azure.com
+ping 20.185.4.18
+
+
+nslookup myip.opendns.com. resolver1.opendns.com
