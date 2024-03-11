@@ -1,0 +1,8 @@
+sudo apt-get install -y postgresql-client
+psql --version  
+
+psql --host=myhost.com --username=admin --dbname=postgres
+
+\l     # show all databases
+\c     # connect to db
+\dt    # get all tables

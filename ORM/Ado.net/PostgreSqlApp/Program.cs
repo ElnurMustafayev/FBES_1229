@@ -11,7 +11,6 @@ var connectionString = $"User ID={login};Password={password};Host={host};Port={p
 using var connection = new NpgsqlConnection(connectionString);
 await connection.OpenAsync();
 
-
 for (int i = 0; i < 100; i++)
 {
     using var command = new NpgsqlCommand($"create table TEST{Guid.NewGuid().ToString("N").ToUpper()} ( myColumn varchar(100) )", connection);
