@@ -1,0 +1,9 @@
+cd
+ls
+apt
+pwd
+dir
+cat
+
+sudo service nginx status
+sudo nano myapp.conf

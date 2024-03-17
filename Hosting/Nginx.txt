@@ -1,0 +1,58 @@
+1. update apt repositories
+sudo apt update
+
+2. install nginx package
+sudo apt install -y nginx
+
+3. check service running
+sudo service nginx status
+
+4. cd in nginx config folder
+cd /etc/nginx/sites-available
+
+5. add nginx configuration file
+sudo touch myapp.conf
+
+6. write nginx configurationi for app:
+server {
+    listen        80;
+    server_name   [youripaddress];
+
+    location / {
+        proxy_pass         http://localhost:5000;
+        proxy_http_version 1.1;
+        proxy_set_header   Upgrade $http_upgrade;
+        proxy_set_header   Connection keep-alive;
+        proxy_set_header   Host $host;
+        proxy_cache_bypass $http_upgrade;
+        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header   X-Forwarded-Proto $scheme;
+    }
+}
+
+7. commit configuration (add link in enabled configutarions)
+sudo ln -s /etc/nginx/sites-available/myapp.conf /etc/nginx/sites-enabled/
+
+8. restart nginx service
+sudo service nginx restart
+
+9. check nginx status
+sudo service nginx status
+
+10. install dotnet
+sudo apt-get update
+sudo apt-get install -y dotnet-sdk-8.0
+
+11. create application folder
+cd /var/www
+sudo mkdir myapp
+cd myapp
+
+12. create dotnet app
+sudo dotnet new mvc
+
+13. publish Release version
+sudo dotnet publish -c Release
+
+14. run app
+cd bin/Release/net8.0/publish

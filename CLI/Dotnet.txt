@@ -21,3 +21,5 @@ dotnet build
 
 dotnet add package System.Data.SqlClient
 dotnet remove package System.Data.SqlClient
+
+dotnet publish -c Release
