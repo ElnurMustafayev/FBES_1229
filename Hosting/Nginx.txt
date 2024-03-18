@@ -54,5 +54,39 @@ sudo dotnet new mvc
 13. publish Release version
 sudo dotnet publish -c Release
 
-14. run app
+MANUAL:
+14. manual run app
 cd bin/Release/net8.0/publish
+
+SERVICE:
+14. create service file
+cd /etc/systemd/system
+sudo touch myapp.service
+
+15. write configs in service file:
+[Unit]
+Description=Example .NET Web App running on Linux
+
+[Service]
+WorkingDirectory=/var/www/myapp/bin/Release/net7.0/publish
+ExecStart=/usr/bin/dotnet /var/www/myapp/bin/Release/net7.0/publish/myapp.dll
+Restart=always
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=dotnet-example
+User=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_NOLOGO=true
+
+[Install]
+WantedBy=multi-user.target
+
+16. enable service
+sudo systemctl enable myapp.service
+
+17. start service
+sudo systemctl start myapp.service
+sudo systemctl status myapp.service
+
+18. get service logs
+sudo journalctl -fu myapp.service

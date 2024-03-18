@@ -4,6 +4,10 @@ apt
 pwd
 dir
 cat
+scp
+man
 
 sudo service nginx status
 sudo nano myapp.conf
+ls -ls | grep "myapp"
+scp localdir/test.txt userbravo@destination_host:/user/home/remotedir/result.txt
