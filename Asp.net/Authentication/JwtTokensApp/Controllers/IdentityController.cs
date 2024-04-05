@@ -2,8 +2,6 @@ namespace JwtTokensApp.Controllers;
 
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Security.Cryptography;
-using System.Text;
 using JwtTokensApp.Dtos;
 using JwtTokensApp.Options;
 using Microsoft.AspNetCore.Mvc;
@@ -23,21 +21,23 @@ public class IdentityController : ControllerBase
 
     [HttpPost]
     public string Login(LoginDto loginDto) {
-        var keyInBytes = Encoding.UTF8.GetBytes(this.jwtOptions.Key);
-
-        var securityKey = new SymmetricSecurityKey(keyInBytes);
-        var signingCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
         var claims = new List<Claim>() {
-            new Claim(ClaimTypes.Name, loginDto.Login),
-            new Claim(ClaimTypes.Role, "Admin")
+            new(ClaimTypes.Name, loginDto.Login),
+            new(ClaimTypes.Role, "User")
         };
 
+        if(loginDto.Login.ToLower().Contains("admin")) {
+            claims.Add(new(ClaimTypes.Role, "Admin"));
+        }
+
+        var securityKey = new SymmetricSecurityKey(this.jwtOptions.KeyInBytes);
+        var signingCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
         var securityToken = new JwtSecurityToken(
-            issuer: "Elnur",
-            audience: "Step IT",
+            issuer: this.jwtOptions.Issuers.First(),
+            audience: this.jwtOptions.Audience,
             claims,
-            expires: DateTime.Now.AddMinutes(20),
+            expires: DateTime.Now.AddMinutes(this.jwtOptions.LifetimeInMinutes),
             signingCredentials: signingCredentials
         );
 
