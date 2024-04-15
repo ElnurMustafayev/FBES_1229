@@ -1,0 +1,44 @@
+@page "/Identity/Login"
+
+@inject AuthenticationStateProvider authenticationStateProvider
+
+<PageTitle>Login</PageTitle>
+
+<h1>Login</h1>
+
+<EditForm Model="loginDto" OnValidSubmit="OnLoginFormSubmitAsync">
+    <DataAnnotationsValidator/>
+    <ValidationSummary/>
+
+    <label class="form-label d-block">
+        Login: 
+        <InputText class="form-control" @bind-Value=loginDto.Login></InputText>
+    </label>
+
+    <label class="form-label d-block">
+        Password: 
+        <InputText class="form-control" type="password" @bind-Value=loginDto.Password></InputText>
+    </label>
+
+    <button class="btn btn-success">Login</button>
+</EditForm>
+
+@code {
+    public class LoginDto {
+        [Required]
+        public string Login { get; set; }
+        [Required]
+        public string Password { get; set; }
+    }
+
+    public LoginDto loginDto { get; set; } = new();
+
+    private async Task OnLoginFormSubmitAsync(EditContext editContext) {
+        @* System.Console.WriteLine(loginDto.Login);
+        System.Console.WriteLine(loginDto.Password); *@
+
+        CustomAuthenticationStateProvider.IsLogined = true;
+
+        var authenticationState = await authenticationStateProvider.GetAuthenticationStateAsync();
+    }
+}

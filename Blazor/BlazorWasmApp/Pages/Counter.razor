@@ -1,5 +1,23 @@
 ﻿@page "/counter"
-@inject AuthenticationStateProvider authenticationStateProvider;
+@* @attribute [Authorize(Roles = "admin")] *@
+
+@* <AuthorizeView>
+    <Authorized>
+        YOU ARE AUTHENTICATED!
+    </Authorized>
+    <NotAuthorized>
+        YOU ARE NOT AUTHENTICATED!
+    </NotAuthorized>
+</AuthorizeView>
+
+<AuthorizeView Roles="developer">
+    <Authorized>
+        YOU ARE AUTHORIZED!
+    </Authorized>
+    <NotAuthorized>
+        YOU ARE NOT AUTHORIZED!
+    </NotAuthorized>
+</AuthorizeView> *@
 
 <PageTitle>Counter</PageTitle>
 
@@ -20,7 +38,6 @@
 
     private async Task IncrementCount()
     {
-        await authenticationStateProvider.GetAuthenticationStateAsync();
         currentCount++;
     }
 }
