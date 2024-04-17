@@ -10,7 +10,12 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
 
-builder.Services.AddAuthorizationCore();
+builder.Services.AddAuthorizationCore(options => {
+    options.AddPolicy(
+        "developer", 
+        builder => builder.RequireRole("developer", "tech leader")
+        );
+});
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
 await builder.Build().RunAsync();
