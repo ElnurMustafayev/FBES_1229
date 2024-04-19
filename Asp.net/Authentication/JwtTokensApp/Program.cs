@@ -83,6 +83,15 @@ builder.Services.AddSwaggerGen(options =>
     );
 });
 
+builder.Services.AddCors(options => {
+    options.AddPolicy("BlazorWasmPolicy", corsBuilder => {
+        corsBuilder
+            .WithOrigins("http://localhost:5192")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope()) {
@@ -109,5 +118,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors("BlazorWasmPolicy");
 
 app.Run();

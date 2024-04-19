@@ -1,6 +1,8 @@
 @page "/Identity/Login"
 
 @inject AuthenticationStateProvider authenticationStateProvider
+@inject ILocalStorageService localStorageService
+@inject NavigationManager navigationManager
 
 <PageTitle>Login</PageTitle>
 
@@ -12,12 +14,12 @@
 
     <label class="form-label d-block">
         Login: 
-        <InputText class="form-control" @bind-Value=loginDto.Login></InputText>
+        <InputText name="login" class="form-control" @bind-Value=loginDto.Login></InputText>
     </label>
 
     <label class="form-label d-block">
         Password: 
-        <InputText class="form-control" type="password" @bind-Value=loginDto.Password></InputText>
+        <InputText name="password" class="form-control" type="password" @bind-Value=loginDto.Password></InputText>
     </label>
 
     <button class="btn btn-success">Login</button>
@@ -34,11 +36,18 @@
     public LoginDto loginDto { get; set; } = new();
 
     private async Task OnLoginFormSubmitAsync(EditContext editContext) {
-        @* System.Console.WriteLine(loginDto.Login);
-        System.Console.WriteLine(loginDto.Password); *@
+        var httpClient = new HttpClient();
 
-        //CustomAuthenticationStateProvider.IsLogined = true;
+        var loginResponse = await httpClient.PostAsJsonAsync("http://localhost:5295/api/Identity/Login", loginDto);
 
-        //var authenticationState = await authenticationStateProvider.GetAuthenticationStateAsync();
+        if (loginResponse.IsSuccessStatusCode && loginResponse.StatusCode == System.Net.HttpStatusCode.OK) {
+            var jwt = await loginResponse.Content.ReadAsStringAsync();
+
+            await localStorageService.SetItemAsStringAsync("jwt", jwt);
+            
+            await authenticationStateProvider.GetAuthenticationStateAsync();
+
+            navigationManager.NavigateTo("/");
+        }
     }
 }

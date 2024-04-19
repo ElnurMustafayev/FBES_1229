@@ -1,4 +1,6 @@
 ﻿@page "/counter"
+
+@inject IJSRuntime jsRuntime
 @* @attribute [Authorize(Roles = "admin")] *@
 
 @* <AuthorizeView>
@@ -21,17 +23,20 @@
 
 <PageTitle>Counter</PageTitle>
 
-<h1>Counter</h1>
+<h1>@Result</h1>
 
 <p role="status">Current count: @currentCount</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
-
-    protected override async Task OnInitializedAsync()
+    public int? Result { get; set; }
+    protected async override Task OnInitializedAsync()
     {
-        //await authenticationStateProvider.GetAuthenticationStateAsync();
+        await jsRuntime.InvokeVoidAsync("console.log", "From OnInitializedAsync");
+        this.Result = await jsRuntime.InvokeAsync<int>("Math.abs", -10);
+            
+        System.Console.WriteLine(Result);
     }
     
     private int currentCount = 0;

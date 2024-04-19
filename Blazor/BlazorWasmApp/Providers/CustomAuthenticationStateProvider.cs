@@ -1,19 +1,61 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BlazorWasmApp.Providers;
 
 public class CustomAuthenticationStateProvider : AuthenticationStateProvider
 {
+    private readonly JwtSecurityTokenHandler jwtTokenHandler;
+    private readonly ILocalStorageService localStorageService;
+
+    public CustomAuthenticationStateProvider(
+        ILocalStorageService localStorageService)
+    {
+            this.localStorageService = localStorageService;
+        this.jwtTokenHandler = new JwtSecurityTokenHandler();
+    }
+
+    private async Task<ClaimsIdentity> GetClaimsIdentityAsync(string? jwt) {
+        if(string.IsNullOrWhiteSpace(jwt)) {
+            return new ClaimsIdentity();
+        }
+
+        var validationResult = await jwtTokenHandler.ValidateTokenAsync(
+            jwt,
+            new TokenValidationParameters()
+            {
+                ValidateAudience = true,
+                ValidAudience = "AkshamBazari Inc.",
+
+                ValidateIssuer = true,
+                ValidIssuer = "identity.akshambazari.az",
+
+                SignatureValidator = (token, validationParameters) => new JwtSecurityToken(token),
+
+                ValidateLifetime = true,
+                RequireExpirationTime = true,
+                LifetimeValidator = (notBefore, expires, securityToken, validationParameters) => expires > DateTime.UtcNow,
+            }
+        );
+
+        if (validationResult.IsValid == false) {
+            throw validationResult.Exception;
+            return new ClaimsIdentity();
+        }
+
+        var token = jwtTokenHandler.ReadJwtToken(jwt);
+
+        return new ClaimsIdentity(token.Claims, "jwt");
+    }
 
     public override async Task<AuthenticationState> GetAuthenticationStateAsync()
     {
-        var jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiZGV2ZWxvcGVyIiwidXNlciJdLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQm9iQGdtYWlsLmNvbSIsImV4cCI6MTcxMzM3NjIxMSwiaXNzIjoiRWxudXIiLCJhdWQiOiJTdGVwIElUIn0.8ofFpLsnpgJ670ibaODPoCRzqZ8eU1H8lJXONH068n0";
+        var jwt = await this.localStorageService.GetItemAsStringAsync("jwt");
 
-        var token = new JwtSecurityTokenHandler().ReadJwtToken(jwt);
-
-        var claimsIdentity = new ClaimsIdentity(token.Claims, "jwt");
+        var claimsIdentity = await this.GetClaimsIdentityAsync(jwt);
 
         var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
 
