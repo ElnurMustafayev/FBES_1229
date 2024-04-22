@@ -1,4 +1,5 @@
 using System.IdentityModel.Tokens.Jwt;
+using System.Net.Http.Json;
 using System.Security.Claims;
 using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -42,7 +43,23 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
         );
 
         if (validationResult.IsValid == false) {
-            throw validationResult.Exception;
+            if(validationResult.Exception is SecurityTokenInvalidLifetimeException lifetimeException) {
+                // get token again
+                var httpClient = new HttpClient();
+
+                var updateTokenResponse = await httpClient.PutAsJsonAsync("http://localhost:5295/api/Identity/UpdateToken", new { jwt });
+
+                if (updateTokenResponse.IsSuccessStatusCode && updateTokenResponse.StatusCode == System.Net.HttpStatusCode.OK) {
+                    var newJwt = await updateTokenResponse.Content.ReadAsStringAsync();
+
+                    await this.localStorageService.SetItemAsStringAsync("jwt", newJwt);
+
+                    var newToken = jwtTokenHandler.ReadJwtToken(newJwt);
+
+                    return new ClaimsIdentity(newToken.Claims, "jwt");
+                }
+            }
+
             return new ClaimsIdentity();
         }
 

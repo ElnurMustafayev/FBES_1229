@@ -52,7 +52,7 @@ public class SecretController : ControllerBase
             return base.Forbid(validationResult.Exception.Message);
         }
 
-        var nameClaim = base.HttpContext.User.Claims.FirstOrDefault(claim => claim.Type == ClaimTypes.Name);
+        var nameClaim = base.HttpContext.User.Claims.FirstOrDefault(claim => claim.Type == ClaimTypes.Email);
         
         return Ok($"Hi, {nameClaim?.Value ?? "Unknown"}!");
     }
@@ -62,7 +62,7 @@ public class SecretController : ControllerBase
     [HttpGet("~/api/[controller]")]
     public IActionResult GetSecrets()
     {
-        var nameClaim = base.HttpContext.User.Claims.FirstOrDefault(claim => claim.Type == ClaimTypes.Name);
+        var nameClaim = base.HttpContext.User.Claims.FirstOrDefault(claim => claim.Type == ClaimTypes.Email);
         
         return Ok($"Hi, {nameClaim?.Value ?? "Unknown"}!");
     }
