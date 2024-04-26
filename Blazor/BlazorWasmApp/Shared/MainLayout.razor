@@ -29,7 +29,8 @@
 
 @code {
     public async Task LogoutAsync() {
-        await localStorageService.RemoveItemAsync("jwt");
+        await localStorageService.RemoveItemAsync("accessToken");
+        await localStorageService.RemoveItemAsync("refreshToken");
             
         await authenticationStateProvider.GetAuthenticationStateAsync();
     }

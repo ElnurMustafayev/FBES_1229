@@ -1,7 +1,9 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Net.Http.Json;
 using System.Security.Claims;
+using System.Text.Json;
 using Blazored.LocalStorage;
+using BlazorWasmApp.Models;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.IdentityModel.Tokens;
 
@@ -11,21 +13,24 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
 {
     private readonly JwtSecurityTokenHandler jwtTokenHandler;
     private readonly ILocalStorageService localStorageService;
+    private readonly IHttpClientFactory httpClientFactory;
 
     public CustomAuthenticationStateProvider(
-        ILocalStorageService localStorageService)
+        ILocalStorageService localStorageService,
+        IHttpClientFactory httpClientFactory)
     {
-            this.localStorageService = localStorageService;
+        this.localStorageService = localStorageService;
+        this.httpClientFactory = httpClientFactory;
         this.jwtTokenHandler = new JwtSecurityTokenHandler();
     }
 
-    private async Task<ClaimsIdentity> GetClaimsIdentityAsync(string? jwt) {
-        if(string.IsNullOrWhiteSpace(jwt)) {
+    private async Task<ClaimsIdentity> GetClaimsIdentityAsync(string? accessToken, string? refreshToken) {
+        if(string.IsNullOrWhiteSpace(accessToken) || string.IsNullOrWhiteSpace(refreshToken)) {
             return new ClaimsIdentity();
         }
 
         var validationResult = await jwtTokenHandler.ValidateTokenAsync(
-            jwt,
+            accessToken,
             new TokenValidationParameters()
             {
                 ValidateAudience = true,
@@ -44,17 +49,25 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
 
         if (validationResult.IsValid == false) {
             if(validationResult.Exception is SecurityTokenInvalidLifetimeException lifetimeException) {
-                // get token again
-                var httpClient = new HttpClient();
+                // update token
+                var httpClient = httpClientFactory.CreateClient("identity");
 
-                var updateTokenResponse = await httpClient.PutAsJsonAsync("http://localhost:5295/api/Identity/UpdateToken", new { jwt });
+                var updateTokensResponse = await httpClient.PutAsJsonAsync(
+                    "api/Identity/UpdateToken", 
+                    new {
+                        accessToken,
+                        refreshToken
+                    }
+                );
 
-                if (updateTokenResponse.IsSuccessStatusCode && updateTokenResponse.StatusCode == System.Net.HttpStatusCode.OK) {
-                    var newJwt = await updateTokenResponse.Content.ReadAsStringAsync();
+                if (updateTokensResponse.IsSuccessStatusCode && updateTokensResponse.StatusCode == System.Net.HttpStatusCode.OK) {
+                    var updateTokensResponseJson = await updateTokensResponse.Content.ReadAsStringAsync();
+                    var newRefreshAccessTokens = JsonSerializer.Deserialize<RefreshAccessTokens>(updateTokensResponseJson)!;
+                    
+                    await this.localStorageService.SetItemAsStringAsync("accessToken", newRefreshAccessTokens.AccessToken);
+                    await this.localStorageService.SetItemAsStringAsync("refreshToken", newRefreshAccessTokens.RefreshToken);
 
-                    await this.localStorageService.SetItemAsStringAsync("jwt", newJwt);
-
-                    var newToken = jwtTokenHandler.ReadJwtToken(newJwt);
+                    var newToken = jwtTokenHandler.ReadJwtToken(newRefreshAccessTokens.AccessToken);
 
                     return new ClaimsIdentity(newToken.Claims, "jwt");
                 }
@@ -63,16 +76,17 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
             return new ClaimsIdentity();
         }
 
-        var token = jwtTokenHandler.ReadJwtToken(jwt);
+        var token = jwtTokenHandler.ReadJwtToken(accessToken);
 
         return new ClaimsIdentity(token.Claims, "jwt");
     }
 
     public override async Task<AuthenticationState> GetAuthenticationStateAsync()
     {
-        var jwt = await this.localStorageService.GetItemAsStringAsync("jwt");
+        var accessToken = await this.localStorageService.GetItemAsStringAsync("accessToken");
+        var refreshToken = await this.localStorageService.GetItemAsStringAsync("refreshToken");
 
-        var claimsIdentity = await this.GetClaimsIdentityAsync(jwt);
+        var claimsIdentity = await this.GetClaimsIdentityAsync(accessToken, refreshToken);
 
         var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
 

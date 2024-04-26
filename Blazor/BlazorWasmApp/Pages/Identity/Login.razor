@@ -3,6 +3,7 @@
 @inject AuthenticationStateProvider authenticationStateProvider
 @inject ILocalStorageService localStorageService
 @inject NavigationManager navigationManager
+@inject IHttpClientFactory httpClientFactory
 
 <PageTitle>Login</PageTitle>
 
@@ -36,14 +37,17 @@
     public LoginDto loginDto { get; set; } = new();
 
     private async Task OnLoginFormSubmitAsync(EditContext editContext) {
-        var httpClient = new HttpClient();
+        var httpClient = httpClientFactory.CreateClient("identity");
 
-        var loginResponse = await httpClient.PostAsJsonAsync("http://localhost:5295/api/Identity/Login", loginDto);
+        var loginResponse = await httpClient.PostAsJsonAsync("api/Identity/Login", loginDto);
 
         if (loginResponse.IsSuccessStatusCode && loginResponse.StatusCode == System.Net.HttpStatusCode.OK) {
-            var jwt = await loginResponse.Content.ReadAsStringAsync();
+            var loginResponseJson = await loginResponse.Content.ReadAsStringAsync();
 
-            await localStorageService.SetItemAsStringAsync("jwt", jwt);
+            var refreshAccessTokens = JsonSerializer.Deserialize<RefreshAccessTokens>(loginResponseJson);
+
+            await localStorageService.SetItemAsStringAsync("accessToken", refreshAccessTokens.AccessToken);
+            await localStorageService.SetItemAsStringAsync("refreshToken", refreshAccessTokens.RefreshToken);
             
             await authenticationStateProvider.GetAuthenticationStateAsync();
 
