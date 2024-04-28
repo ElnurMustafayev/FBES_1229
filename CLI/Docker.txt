@@ -1,0 +1,40 @@
+docker images         - Выводит все скаченные (неудалённые) образы
+
+
+docker pull imagename - Скачивает образ по названию
+
+
+docker run {imagename}                    - Запускает контейнер на основе образа (latest тег по дефолту)
+docker run {imagename:tagname}
+docker run {imageid}
+docker run -d {imagename}                 - Запускает контейнер в фоновом режиме
+docker run -e "{ENVNAME}={ENVVALUE}"      - Передаёт переменные среды в контейнер в момент запуска
+docker run -p {localport}:{containerport} - Добавление портов
+
+
+docker rmi {imageid} - Удаляет образ (образ не должен работать в каком-либо контейнере)
+
+
+
+docker ps             - Выдаёт список запущенных контейнеров
+docker ps -a          - Выдаёт список всех контейнеров
+
+
+docker logs {containetid} - Выводит stdout контейнера
+docker logs {containetid} | grep "test"
+
+
+docker stop {containetid} - Останавливает запущенный контейнер
+
+
+docker start {containetid} - Запускает остановенный контейнер
+
+
+docker rm {containetid} - Удаляет остановленный контейнер
+
+
+docker build . - Создать новый образ на основе докерфайла
+docker build -t mymssqlimage:latest . - Задать название и тег новому образу
+
+
+docker exec -it {containetid} {shellname} - Войти в запущенный контейнер используя оболочку (shellname, например bash)
