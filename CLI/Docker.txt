@@ -10,6 +10,7 @@ docker run {imageid}
 docker run -d {imagename}                 - Запускает контейнер в фоновом режиме
 docker run -e "{ENVNAME}={ENVVALUE}"      - Передаёт переменные среды в контейнер в момент запуска
 docker run -p {localport}:{containerport} - Добавление портов
+docker run --rm                           - Контейнер удалится автоматически после завершения
 
 
 docker rmi {imageid} - Удаляет образ (образ не должен работать в каком-либо контейнере)
@@ -35,6 +36,7 @@ docker rm {containetid} - Удаляет остановленный контей
 
 docker build . - Создать новый образ на основе докерфайла
 docker build -t mymssqlimage:latest . - Задать название и тег новому образу
+docker build -f {dockerfilename} . - Создать докер образ на основе файла с названием отличным от "Dockerfile"
 
 
 docker exec -it {containetid} {shellname} - Войти в запущенный контейнер используя оболочку (shellname, например bash)
