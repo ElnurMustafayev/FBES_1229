@@ -1,0 +1,17 @@
+mongosh
+
+show dbs - показать список баз данных
+show collections - показать список коллекций выбранной базы данных
+
+
+use {databasename} - перейти на другую базу данных
+
+# create
+db.createCollection("{newcollectionname}") - создать коллекцию в выбранной базе данных
+
+# insert
+db.{collectionname}.insertOne({ Name: "Bob", Surname: "Brown" })
+
+# select
+db.{collectionname}.find()
+db.{collectionname}.find({Name: "Bob"})
