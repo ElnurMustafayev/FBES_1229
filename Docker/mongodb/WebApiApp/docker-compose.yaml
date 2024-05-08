@@ -1,0 +1,45 @@
+version: '1'
+
+services:
+  webapiapp:
+    image: webapi
+    container_name: webapiapp
+    depends_on:
+      - mongodb
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - one=1
+      - two=22
+      - three=333
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
+    networks:
+      - mybridgenetwork
+    restart: always
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    expose:
+      - 27017
+    ports:
+      - 27017:27017
+    networks:
+      - mybridgenetwork
+    volumes:
+      - mymongovolume:/data/db
+      - mymongovolume:/data/configdb
+    restart: always
+
+  
+
+networks:
+  mybridgenetwork:
+    driver: bridge
+
+volumes:
+  mymongovolume:
