@@ -1,0 +1,36 @@
+version: '1'
+
+services:
+  webapi:
+    image: webapi
+    container_name: webapiapp
+    depends_on:
+      - postgres
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - mybridgenetwork
+    ports:
+      - 8080:8080
+    expose:
+      - 8080
+
+
+  postgres:
+    image: postgres
+    container_name: postgresdb
+    environment:
+      - POSTGRES_USER=myuser
+      - POSTGRES_PASSWORD=Secret12345!
+      - POSTGRES_DB=mydatabase
+    networks:
+      - mybridgenetwork
+    ports:
+      - 5432:5432
+    expose:
+      - 5432
+
+networks:
+  mybridgenetwork:
+    driver: bridge
