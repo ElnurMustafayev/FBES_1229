@@ -4,33 +4,33 @@ using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using Npgsql;
 using ProductsWebApi.Models;
+using ProductsWebApi.Repositories.Base;
 
 [Route("/api/[controller]")]
 public class ProductController : ControllerBase
 {
-    private readonly IConfiguration configuration;
+    private readonly IProductRepository productRepository;
 
-    public ProductController(IConfiguration configuration)
+    public ProductController(IProductRepository productRepository)
     {
-        this.configuration = configuration;
+        this.productRepository = productRepository;
     }
 
     [HttpGet]
     [Route("{id}")]
     public async Task<ActionResult<Product>> GetProductAsync(int id) {
-        var connectionString = configuration.GetConnectionString("PostgreSql");
-        using var connection = new NpgsqlConnection(connectionString);
-
-        var product = await connection.QueryFirstOrDefaultAsync<Product>(
-            "select * from Products where Id = @Id",
-            new {
-                Id = id
-            }
-        );
+        var product = await productRepository.GetAsync(id);
 
         if(product == null) {
             return base.NotFound();
         }
+
+        return Ok(product);
+    }
+
+    [HttpPost]
+    public async Task<ActionResult<Product>> CreateProduct(Product product) {
+        await productRepository.CreateAsync(product);
 
         return Ok(product);
     }

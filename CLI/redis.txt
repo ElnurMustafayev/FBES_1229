@@ -1,2 +1,6 @@
 set key value
 get key
+
+set key value EX 10 - will expire after 10 seconds
+set key value NX          - if key not exist
+set key value XX          - if key exist
