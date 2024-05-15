@@ -1,0 +1,37 @@
+{
+    "Routes": [
+        {
+            "UpstreamPathTemplate": "/hey",
+            "UpstreamHttpMethod": [
+                "Post"
+            ],
+
+            "DownstreamPathTemplate": "/api/first",
+            "DownstreamScheme": "http",
+
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": "5047"
+                }
+            ]
+        },
+
+        {
+            "UpstreamPathTemplate": "/second/{routeparam}",
+            "UpstreamHttpMethod": [
+                "Get"
+            ],
+
+            "DownstreamPathTemplate": "/api/second/{routeparam}",
+            "DownstreamScheme": "http",
+
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": "5121"
+                }
+            ]
+        }
+    ]
+}
